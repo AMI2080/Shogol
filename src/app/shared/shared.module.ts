@@ -4,6 +4,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PageComponent } from './page/page.component';
 import { HeaderComponent } from './page/header/header.component';
+import { SearchComponent } from './page/header/search/search.component';
+import { FooterComponent } from './page/footer/footer.component';
 
 const sharedComponents = [PageComponent];
 
@@ -13,6 +15,8 @@ const sharedComponents = [PageComponent];
     // components
     ...sharedComponents,
     HeaderComponent,
+    SearchComponent,
+    FooterComponent,
   ],
   exports: [
     // components
