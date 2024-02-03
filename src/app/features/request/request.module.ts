@@ -4,12 +4,14 @@ import { SharedModule } from '../../shared/shared.module';
 import { RequestComponent } from './request.component';
 import { NewComponent } from './new/new.component';
 import { RequestRoutingModule } from './request-routing.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    RequestRoutingModule
+    RequestRoutingModule,
+    FormsModule
   ],
   declarations: [
     RequestComponent,
