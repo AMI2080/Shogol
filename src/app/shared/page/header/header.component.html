@@ -1,12 +1,12 @@
-<div class="header" [style.height]="show ? '22rem' : '4.1rem'">
-  <div class="header-items">
+<div class="header" [class.fixed]="isHeaderFixed">
+  <div class="header-items" [ngClass]="{ show: show }">
     <div class="header-item logo">
-      <img src="../../../../assets/logo.svg" alt="" />
+      <img src="assets/logo-text.svg" alt="" />
       <i class="fa-solid fa-bars-staggered ber" (click)="onshow()"></i>
     </div>
     <div class="items">
       <div class="header-item pages">
-        <ul class="">
+        <ul >
           <li *ngFor="let myArray of myObjectArray">
             {{ myArray.name }}
           </li>
@@ -18,18 +18,17 @@
       </div>
       <div class="header-item btns login">
         <div class="image">
-          <img src="../../../../assets/header-image.jpg" alt="" />
+          <img src="assets/header-image.jpg" alt="" />
           <i class="fa-solid fa-bars"></i>
         </div>
-        <button class="ads"> اضف اعلان</button>
+        <button class="ads">اضف اعلان</button>
       </div>
+      <!-- This will be used later with the if condition -->
       <!-- <div class="header-item btns">
         <button class="active">كن مشتغل</button>
         <button>تسجيل الدخول</button>
       </div> -->
     </div>
   </div>
+  <app-search></app-search>
 </div>
-<app-search></app-search>
-<!-- <a routerLink="/home">Home</a>
-<a routerLink="/search">search</a> -->

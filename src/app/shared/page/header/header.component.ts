@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component  , HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +11,17 @@ export class HeaderComponent {
     {  name: 'الاعلانات'   , link : "" },
     {  name: 'الطلبات',   link : "" },
     {  name: 'المشتغلين'  , link : "" },
-    // {  name: 'تواصل معنا',  link : ""}
   ];
   show : boolean = false ;
 
   onshow(){
     this.show = !this.show ;
-    console.log(this.show)
+  }
+  isHeaderFixed : boolean = false;
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    // Check the scroll position and set the fixed class accordingly
+    this.isHeaderFixed = window.pageYOffset > 0;
   }
 }
