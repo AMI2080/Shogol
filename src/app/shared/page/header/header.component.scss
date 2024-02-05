@@ -1,8 +1,7 @@
 .header {
   transition: 0.5s;
-  height: 7.5rem;
+  height: 8rem;
   width: 100%;
-  padding-top: 10px;
   top: 0;
   background-color: white;
   display: grid;
@@ -22,7 +21,7 @@
     align-items: center;
     height: 100%;
     color: var(--font-color);
-
+    margin-top: 5px;
     .logo {
       img {
         width: 90px;
@@ -46,7 +45,7 @@
     }
     .pages {
       width: 29rem;
-      height: 80%;
+      height: 100%;
       ul {
         display: grid;
         grid-auto-flow: column;
@@ -131,8 +130,15 @@
       }
     }
   }
+
 }
 
+app-search{
+  display: grid;
+  align-items: center;
+  width: 100%;
+  border-right: 0;
+}
 @keyframes identifier {
   0% {
     height: 4.1rem;
