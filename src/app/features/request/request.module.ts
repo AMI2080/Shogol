@@ -4,18 +4,10 @@ import { SharedModule } from '../../shared/shared.module';
 import { RequestComponent } from './request.component';
 import { NewComponent } from './new/new.component';
 import { RequestRoutingModule } from './request-routing.module';
-import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    RequestRoutingModule,
-    FormsModule
-  ],
-  declarations: [
-    RequestComponent,
-    NewComponent
-  ],
+  imports: [CommonModule, SharedModule, RequestRoutingModule, NgSelectModule],
+  declarations: [RequestComponent, NewComponent],
 })
 export class RequestModule {}
