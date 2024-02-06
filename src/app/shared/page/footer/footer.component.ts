@@ -26,9 +26,9 @@ export class FooterComponent {
     { title: 'اتصل بنا', url: '#' }
   ];
   socialMediaPlatforms: { iconClass: string, href: string }[] = [
-    { iconClass: 'fa-brands fa-facebook', href: '#' },
-    { iconClass: 'fa-brands fa-snapchat', href: '#' },
-    { iconClass: 'fa-brands fa-twitter', href: '#' },
-    { iconClass: 'fa-brands fa-instagram', href: '#' }
+    { iconClass: 'fa-brands fa-facebook fa-fw', href: '#' },
+    { iconClass: 'fa-brands fa-snapchat fa-fw', href: '#' },
+    { iconClass: 'fa-brands fa-twitter fa-fw', href: '#' },
+    { iconClass: 'fa-brands fa-instagram fa-fw', href: '#' }
   ];
 }
