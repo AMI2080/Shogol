@@ -13,3 +13,30 @@
 body {
   direction: rtl;
 }
+
+
+details{
+border-bottom: 1px dashed #ccc;
+}
+summary{
+  list-style-type: none;
+}
+.fa-plus,
+.fa-minus {
+  font-size: 1.2em; 
+  margin-right: 5px; 
+  display: inline-block;
+}
+
+.fa-minus {
+  display: none;
+}
+
+
+details[open] .fa-plus {
+  display: none;
+}
+
+details[open] .fa-minus {
+  display: inline-block;
+}

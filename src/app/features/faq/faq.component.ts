@@ -1,23 +1,15 @@
 
-import { Component,ViewChild, ElementRef} from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   templateUrl: './faq.component.html',
 })
 export class FAQComponent {
-  @ViewChild('element1') element1!: ElementRef;
-  @ViewChild('element2') element2!: ElementRef;
-  @ViewChild('element3') element3!: ElementRef;
-  @ViewChild('element4') element4!: ElementRef;
 
-  elementsVisible = [true, false, false, false];
-
-  toggleElement(index: number): void {
-    this.elementsVisible[index] = !this.elementsVisible[index];
-  }
-
-  getIconClass(index: number): string {
-    return this.elementsVisible[index] ? 'fas fa-minus' : 'fas fa-plus';
-  }
-  
+  questions = [
+    { question: 'لا أتذكر كلمة المرور الخاصة بي', answer: 'إذا نسيت كلمة المرور الخاصة بك، يمكنك إعادة تعيينها عن طريق خيار "نسيت كلمة المرور" المتاح على الصفحة الرئيسية لتسجيل الدخول. قم باتباع التعليمات لإعادة تعيين كلمة المرور عبر البريد الإلكتروني أو رقم الهاتف المرتبط بحسابك.' },
+    { question: 'كيف يمكنني إنشاء حساب على', answer: '    إذا نسيت كلمة المرور الخاصة بك، يمكنك إعادة تعيينها عن طريق خيار "نسيت كلمة المرور" المتاح على الصفحة الرئيسية لتسجيل الدخول. قم باتباع التعليمات لإعادة تعيين كلمة المرور عبر البريد الإلكتروني أو رقم الهاتف المرتبط بحسابك.' },
+    { question: 'ما هى ساعات التسليم ', answer: '    إذا نسيت كلمة المرور الخاصة بك، يمكنك إعادة تعيينها عن طريق خيار "نسيت كلمة المرور" المتاح على الصفحة الرئيسية لتسجيل الدخول. قم باتباع التعليمات لإعادة تعيين كلمة المرور عبر البريد الإلكتروني أو رقم الهاتف المرتبط بحسابك.' },
+    { question: 'أوريد فاتورة لطلبي', answer: '    إذا نسيت كلمة المرور الخاصة بك، يمكنك إعادة تعيينها عن طريق خيار "نسيت كلمة المرور" المتاح على الصفحة الرئيسية لتسجيل الدخول. قم باتباع التعليمات لإعادة تعيين كلمة المرور عبر البريد الإلكتروني أو رقم الهاتف المرتبط بحسابك.' },
+  ];
 }
