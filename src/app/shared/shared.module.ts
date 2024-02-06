@@ -7,16 +7,18 @@ import { HeaderComponent } from './page/header/header.component';
 import { SearchComponent } from './page/header/search/search.component';
 import { FooterComponent } from './page/footer/footer.component';
 
-const sharedComponents = [PageComponent];
+const sharedComponents = [
+  PageComponent,
+  HeaderComponent,
+  SearchComponent,
+  FooterComponent,
+];
 
 @NgModule({
   imports: [CommonModule, NgSelectModule, ReactiveFormsModule, FormsModule],
   declarations: [
     // components
     ...sharedComponents,
-    HeaderComponent,
-    SearchComponent,
-    FooterComponent,
   ],
   exports: [
     // components

@@ -1,15 +1,15 @@
 <footer class="footer">
-
   <div class="container">
     <!-- Icon at the top right -->
-    <div class="">
-      <div class="col-md-12 text-right ">
-        <img src="assets/logo.svg" alt="Icon" height="40">
-      </div>
+    <div class="col-md-12 text-right">
+      <img src="assets/logo.svg" alt="Icon" height="40">
     </div>
     <div class="row footer-contan">
-      <div class="">
-        <ul>
+      <div class="information">
+        <ul >
+          <li>
+            <a href="#">معلومات عن شغل</a>
+          </li>
           <li *ngFor="let link of infoLinks">
             <a [href]="link.url">{{ link.title }}</a>
           </li>
@@ -18,42 +18,43 @@
 
       <div class="linkes fw-lighter">
         <ul>
-          <li><a href="#" class="main-color fw-normal">{{ otherLinks[0].title }}</a></li>
-          <li><a href="#">{{ otherLinks[1].title }}</a></li>
-          <li><a href="#">{{ otherLinks[2].title }}</a></li>
-          <li><a href="#">{{ otherLinks[3].title }}</a></li>
+          <li>
+            <a href="#">روابط</a>
+          </li>
+          <li *ngFor="let link of otherLinks">
+            <a [href]="link.url" class="fw-normal">{{ link.title }}</a>
+          </li>
         </ul>
       </div>
 
-      <div class="fw-lighter">
+      <div class="pages fw-lighter">
         <ul>
-          <li><a href="#" class="main-color fw-normal">{{ pagesLinks[0].title }}</a></li>
-          <li><a href="#">{{ pagesLinks[1].title }}</a></li>
-          <li><a href="#">{{ pagesLinks[2].title }}</a></li>
-          <li><a href="#">{{ pagesLinks[3].title }}</a></li>
-          <li><a href="#">{{ pagesLinks[4].title }}</a></li>
+          <li>
+            <a href="#" >صفحات</a>
+          </li>
+          <li *ngFor="let link of pagesLinks">
+            <a [href]="link.url">{{ link.title }}</a>
+          </li>
         </ul>
       </div>
-      <div class=" apps">
+      <div class="apps">
         <ul>
           <li><a href="#" class="main-color">حمل تطبيق شغل</a></li>
-          <img src="assets/apple store.jpg" alt="Icon" >
-          <img src="assets/google stores.jpg" alt="Icon" >
+          <li><img src="assets/apple store.jpg" alt="Icon"></li>
+          <li><img src="assets/google stores.jpg" alt="Icon"></li>
         </ul>
       </div>
-      <div class=" social">
+      <div class="social">
         <p class="main-color">تابعنا</p>
-        <ul class="d-flex flex-row gap-3 fs-4 ">
-          <li><a href="#" class="icon-link"><i class="fa-brands fa-facebook "></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-snapchat"></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        <ul class="d-flex flex-row gap-3 fs-4">
+          <li *ngFor="let platform of socialMediaPlatforms">
+            <a [href]="platform.href" class="icon-link"><i class="{{ platform.iconClass }}"></i></a>
+          </li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="text-center mt-5 p-2 text-white copyright  fw-lighter" >
+  <div class="text-center mt-5 p-2 text-white copyright  fw-lighter">
     Copyright ©2021 All rights reserved | Shogl Platform by lun startup studio
   </div>
 </footer>
-

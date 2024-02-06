@@ -11,6 +11,7 @@
     grid-template-columns: 72% 4% 14%;
     align-items: center;
     .inputs {
+      display: flex;
       .in-search {
         outline: none;
         border: 1px solid #cfcfcf;
@@ -72,7 +73,7 @@
           width: 25%;
         }
       }
-      button{
+      button {
         width: 10rem;
       }
     }
@@ -83,16 +84,14 @@
     height: 7.5rem;
     .items {
       width: 95%;
-      grid-template-columns: 1fr ;
-      .word{
+      grid-template-columns: 1fr;
+      .word {
         display: none;
       }
-      button{
+      button {
         margin-top: 1rem;
         width: 100%;
       }
     }
   }
-}
-@media (max-width: 576px) {
 }
