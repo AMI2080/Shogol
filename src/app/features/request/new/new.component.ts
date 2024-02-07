@@ -6,14 +6,14 @@ import { Component } from '@angular/core';
     `
       ::ng-deep .ng-dropdown-panel {
         border: 1px solid #e2e8f0;
-        maring-bottom: 0.5rem;
       }
       ::ng-deep .ng-option {
         color: #6b7280;
         background-color: #fff;
         padding: 0.5rem;
         border-bottom: 1px solid #e2e8f0;
-        &:hover {
+        &:hover,
+        &.ng-option-marked {
           background-color: #14b8a6;
           color: #fff;
         }
