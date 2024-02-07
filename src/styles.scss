@@ -14,9 +14,24 @@ body {
   direction: rtl;
 }
 
-
-details{
-border-bottom: 1px dashed #ccc;
+.dashed-border {
+  width: 98%;
+  border-bottom: .75px dashed #cccccce3;
+  padding-bottom: 20px;
+}
+.head a{
+  color: #9e9a9a;
+  transition: color .3s;
+}
+.head i{
+  color: #9e9a9a;
+  transition: color .3s;
+}
+.head a:hover{
+  color: #595858;
+}
+.head i:hover{
+  color: #595858;
 }
 summary{
   list-style-type: none;

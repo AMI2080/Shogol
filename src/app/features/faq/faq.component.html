@@ -3,24 +3,27 @@
 <app-page>
   <ng-container content>
     <section class="container pt-lg-5">
-    <div class="">
-<a href="#" class="text-secondary text-decoration-none">الرئيسية</a>
-<i class="fa-solid fa-angle-left text-secondary px-2"></i>
-<a href="#" class="text-secondary text-decoration-none">الأسئلة الشائعة</a>
+    <div class="head">
+<a href="#" class=" text-decoration-none">الرئيسية</a>
+<i class="fa-solid fa-angle-left px-2"></i>
+<a href="#" class="text-decoration-none">الأسئلة الشائعة</a>
 </div>
 <h5 class="fs-6 py-3 fw-bold ">الأسئلة الشائعة</h5>
 
-<div *ngFor="let item of questions; let i = index">
-  <details [open]="i === 0">
+<div *ngFor="let item of questions; let i = index;let last = last">
+  <details [open]="i === 0" class="border-0">
     <summary class="pb-3">
-      <div class="d-flex justify-content-end align-items-end">
-      <i class="fas fa-plus"></i>
+      <div class="d-flex justify-content-between align-items-center">
+        {{ item.question }}
+        <div class="d-flex align-items-center">   
+             <i class="fas fa-plus"></i>
       <i class="fas fa-minus"></i>
+      </div>
     </div>
-      {{ item.question }}</summary>
-    
+    </summary>
     <p class="text-secondary col-md-6 py-2">{{ item.answer }}</p>
   </details>
+  <hr *ngIf="!last" class="dashed-border">
 
 </div>
 </section>
