@@ -1,11 +1,11 @@
 <footer class="footer">
   <div class="container">
-    <div class="col-md-12 text-right">
-      <img src="assets/logo.svg" alt="Icon" height="40">
+    <div class="col-md-12 text-right logo-icon">
+      <img src="assets/images/logo-text.svg" alt="Icon" height="40" />
     </div>
     <div class="row footer-contan">
       <div class="information">
-        <ul >
+        <ul>
           <li>
             <a href="#">معلومات عن شغل</a>
           </li>
@@ -18,7 +18,7 @@
       <div class="linkes fw-lighter">
         <ul>
           <li>
-            <a href="#">روابط</a>
+            <span>روابط</span>
           </li>
           <li *ngFor="let link of otherLinks">
             <a [href]="link.url" class="fw-normal">{{ link.title }}</a>
@@ -29,7 +29,7 @@
       <div class="pages fw-lighter">
         <ul>
           <li>
-            <a href="#" >صفحات</a>
+            <span>صفحات</span>
           </li>
           <li *ngFor="let link of pagesLinks">
             <a [href]="link.url">{{ link.title }}</a>
@@ -39,21 +39,23 @@
       <div class="apps">
         <ul>
           <li><a href="#" class="main-color">حمل تطبيق شغل</a></li>
-          <li><img src="assets/apple store.jpg" alt="Icon"></li>
-          <li><img src="assets/google stores.jpg" alt="Icon"></li>
+          <li><img src="assets/images/apple store.jpg" alt="Icon" /></li>
+          <li><img src="assets/images/google stores.jpg" alt="Icon" /></li>
         </ul>
       </div>
       <div class="social">
         <p class="main-color">تابعنا</p>
         <ul class="d-flex flex-row gap-3 fs-4">
           <li *ngFor="let platform of socialMediaPlatforms">
-            <a [href]="platform.href" class="icon-link"><i class="{{ platform.iconClass }}"></i></a>
+            <a [href]="platform.href" class="icon-link"
+              ><i [ngClass]="platform.iconClass"></i
+            ></a>
           </li>
         </ul>
       </div>
     </div>
   </div>
-  <div class="text-center mt-5 p-2 text-white copyright  fw-lighter">
+  <div class="text-center mt-5 p-2 text-white copyright fw-lighter">
     Copyright ©2021 All rights reserved | Shogl Platform by lun startup studio
   </div>
 </footer>

@@ -1,6 +1,9 @@
 footer {
   background: #02385a;
   padding-top: 2rem;
+  .logo-icon{
+    margin-bottom: 5px;
+  }
   .top_line {
     height: 10px;
     width: 100%;
@@ -28,7 +31,7 @@ footer {
   .information {
     ul {
       li {
-        a {
+        span{
           color: white;
         }
       }
@@ -37,7 +40,7 @@ footer {
   .linkes {
     ul {
       li:first-child {
-        a {
+        span{
           color: var(--main-color);
           font-weight: 600;
         }
@@ -47,7 +50,7 @@ footer {
   .pages {
     ul {
       li:first-child {
-        a {
+        span {
           color: var(--main-color);
           font-weight: 600;
         }
