@@ -19,6 +19,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./features/faq/faq.module').then((m) => m.FAQModule),
   },
+  {
+    path: 'terms-of-use',
+    loadChildren: () =>
+      import('./features/terms-of-use/terms-of-use.module').then(
+        (m) => m.TermsOfUseModule,
+      ),
+  },
 ];
 
 @NgModule({
