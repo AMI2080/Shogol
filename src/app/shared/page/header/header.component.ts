@@ -18,11 +18,10 @@ export class HeaderComponent {
   onshow(){
     this.show = !this.show ;
   }
-  isHeaderFixed : boolean = false;
+  // isHeaderFixed : boolean = false;
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    // Check the scroll position and set the fixed class accordingly
-    this.isHeaderFixed = window.pageYOffset > 0;
-  }
+  // @HostListener('window:scroll', [])
+  // onWindowScroll() {
+  //   this.isHeaderFixed = window.pageYOffset > 100;
+  // }
 }
