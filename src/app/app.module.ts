@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
   BrowserModule,
@@ -12,7 +11,7 @@ import { HomeComponent } from './features/home/home.component';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, SharedModule, AppRoutingModule , NoopAnimationsModule],
+  imports: [BrowserModule, SharedModule, AppRoutingModule ],
   providers: [provideClientHydration() ],
   bootstrap: [AppComponent],
 })
