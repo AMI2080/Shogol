@@ -7,7 +7,7 @@ import { Component  , HostListener } from '@angular/core';
 })
 export class HeaderComponent {
 
-  myObjectArray: { name: string , link : string}[]= [
+  myLinks: { name: string , link : string}[]= [
     {  name: 'الرئسية' ,   link : ""},
     {  name: 'الاعلانات'   , link : "" },
     {  name: 'الطلبات',   link : "" },
