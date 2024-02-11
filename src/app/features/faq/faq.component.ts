@@ -3,6 +3,7 @@ import { Component} from '@angular/core';
 
 @Component({
   templateUrl: './faq.component.html',
+  styleUrl:'./faq.component.scss',
 })
 export class FAQComponent {
 
