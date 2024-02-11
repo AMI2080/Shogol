@@ -10,13 +10,10 @@
   font-family: cairo, sans-serif;
 }
 
-body {
-  direction: rtl;
-}
 
-.dashed-border {
-  width: 98%;
-  border-bottom: .75px dashed #cccccca0;
+hr.dashed-border {
+  width: 98% !important;
+  border-bottom: 1px dashed rgba(204, 204, 204, 0.647);
   padding-bottom: 20px;
 }
 .head a{
