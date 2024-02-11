@@ -226,3 +226,12 @@ app-search{
 .header-items.show {
   animation: identifier 1s forwards;
 }
+@keyframes identifier {
+    0% {
+      height: 8rem;
+    }
+    100% {
+      height: 21rem;
+
+    }
+  }
