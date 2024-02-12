@@ -16,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="bg-slate-100 text-[#37383B]">
+    <div class="bg-slate-100 text-gray-700">
       <div class="container flex gap-4 pt-10">
         <!-- sidebar -->
         <div class="bg-white w-1/5 h-fit relative">
@@ -55,7 +55,7 @@
             <div class="flex justify-center items-center pt-3">
               <div class="progress w-9/12 h-3">
                 <div
-                  class="progress-bar bg-[#259A34] rounded-xl"
+                  class="progress-bar bg-green-500 rounded-xl"
                   role="progressbar"
                   style="width: 80%"
                   aria-valuenow="25"
@@ -70,22 +70,55 @@
           <div class="flex justify-between items-center px-4 pt-6">
             <p>الحالة</p>
             <button>
-              <label class="toggle">
-                <input type="checkbox" />
-                <span class="slider"></span>
-                <span class="labels" data-on="متاح" data-off="غير متاح"></span>
+              <label
+                class="relative inline-block w-24 h-8 text-sm rounded-lg cursor-pointer pt-1"
+                [ngClass]="{
+                  'bg-rose-100/50': !isChecked,
+                  'bg-teal-200/25': isChecked
+                }"
+              >
+                <input type="checkbox" class="hidden" [(ngModel)]="isChecked" />
+                <span
+                  class="absolute top-1 left-1 w-10 h-6 rounded-xl transition duration-500 ease-in-out"
+                  [ngClass]="{
+                    'bg-rose-500': !isChecked,
+                    'bg-teal-500': isChecked,
+                    'translate-x-12': isChecked
+                  }"
+                ></span>
+                <span
+                  class="absolute top-1 left-0 w-full h-full transition duration-500 ease-in-out"
+                >
+                  <span
+                    class="absolute right-1 text-gray-600 transition-opacity duration-500 ease-in-out"
+                    [ngClass]="{
+                      'opacity-100': !isChecked,
+                      'opacity-0': isChecked
+                    }"
+                    >غير متاح</span
+                  >
+                  <span
+                    class="absolute left-4 text-gray-600 transition-opacity duration-500 ease-in-out"
+                    [ngClass]="{
+                      'opacity-0': !isChecked,
+                      'opacity-100': isChecked
+                    }"
+                    >متاح</span
+                  >
+                </span>
               </label>
             </button>
           </div>
+
           <!-- links -->
           <div class="flex flex-col px-4 pt-6 transition-all">
             <a
               *ngFor="let link of links"
               [routerLink]="[link.path]"
-              routerLinkActive="router-link-active"
+              routerLinkActive="text-blue-950 font-bold bg-gray-100/50 w-full pr-4"
               [routerLinkActiveOptions]="{ exact: true }"
               [ngClass]="{
-                'before:absolute before:block before:w-2.5 before:h-2.5 before:bg-[#FCBF2A] before:rounded-full before:-translate-x-20':
+                'before:absolute before:block before:w-2.5 before:h-2.5 before:bg-yellow-400 before:rounded-full before:-translate-x-20':
                   link.special
               }"
               class="w-full border-b py-3 transition-all hover:p-5"

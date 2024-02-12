@@ -1,52 +1,44 @@
 <div class="flex flex-col gap-2 text-gray-600 pb-20">
   <div class="p-4 bg-white">
     <h1
-      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
       معلوماتك الشخصية
     </h1>
     <div class="font-semibold">
-      <p class="pb-3">
-        <span class="font-bold pl-2">البريد الإلكتروني </span>
-        {{ "adnan20222@gmail.com" }}
+      <p *ngFor="let info of personalInfo" class="pb-3">
+        <span class="font-bold pl-2">{{ info.label }}</span>
+        {{ info.value }}
       </p>
-      <p class="pb-3">
-        <span class="font-bold pl-2">رقم الجوال </span>96600000000000+
-      </p>
-      <p class="pb-3">
-        <span class="font-bold pl-2">بلد الإقامة </span>السعودية
-      </p>
-      <p class="pb-3"><span class="font-bold pl-2">النوع </span>ذكر</p>
     </div>
   </div>
 
   <div class="p-4 bg-white">
     <h1
-      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
       نبذة عني
     </h1>
     <div>
-      <p class="pb-3 pl-10 leading-7 text-gray-400">
-        هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
-        القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة
-        التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ
-        طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا
-        يوجد محتوى نصي"
+      <p
+        *ngFor="let description of descriptions"
+        class="pb-3 pl-10 leading-7 text-gray-400"
+      >
+        {{ description }}
       </p>
     </div>
   </div>
 
   <div class="p-4 bg-white">
     <h1
-      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
       مجالات الإختصاص
     </h1>
     <div class="flex flex-wrap">
       <p
         *ngFor="let specialty of specialties"
-        class="flex w-fit font-semibold text-teal-500 border-2 border-teal-500 rounded-xl mt-3 mx-1 px-3 py-2 hover:bg-[rgba(30,170,173,1)] hover:text-white transition-all"
+        class="flex w-fit font-semibold text-teal-500 border-2 border-teal-500 rounded-xl mt-3 mx-1 px-3 py-2 hover:bg-teal-500 hover:text-white transition-all"
       >
         {{ specialty.text }}
       </p>
@@ -55,7 +47,7 @@
 
   <div class="p-4 bg-white">
     <h1
-      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
       الشهادات والدورات
     </h1>
@@ -66,11 +58,11 @@
       <p>{{ certificate.name }}</p>
       <div class="flex gap-2">
         <span
-          *ngFor="let i of ' '.repeat(certificate.rating).split('')"
-          class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"
+          *ngFor="let i of [].constructor(certificate.rating)"
+          class="block w-5 h-5 bg-teal-500 rounded-sm"
         ></span>
         <span
-          *ngFor="let i of ' '.repeat(5 - certificate.rating).split('')"
+          *ngFor="let i of [].constructor(5 - certificate.rating)"
           class="block w-5 h-5 bg-gray-400/50 rounded-sm"
         ></span>
       </div>
@@ -79,7 +71,7 @@
 
   <div class="p-4 bg-white">
     <h1
-      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
       اللغات
     </h1>
@@ -90,11 +82,11 @@
       <p>{{ language.name }}</p>
       <div class="flex gap-2">
         <span
-          *ngFor="let i of ' '.repeat(language.rating).split('')"
-          class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"
+          *ngFor="let i of [].constructor(language.rating)"
+          class="block w-5 h-5 bg-teal-500 rounded-sm"
         ></span>
         <span
-          *ngFor="let i of ' '.repeat(5 - language.rating).split('')"
+          *ngFor="let i of [].constructor(5 - language.rating)"
           class="block w-5 h-5 bg-gray-400/50 rounded-sm"
         ></span>
       </div>
@@ -104,13 +96,13 @@
   <div class="flex flex-col md:flex-row gap-2">
     <div class="w-full md:w-3/6 bg-white p-4">
       <h1
-        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
         توثيقات
       </h1>
       <div class="flex flex-wrap gap-x-24 gap-y-2">
         <p *ngFor="let document of documents">
-          <i class="fa-solid fa-circle-check text-[#61bf03]"></i>
+          <i class="fa-solid fa-circle-check text-green-500"></i>
           {{ document.text }}
         </p>
       </div>
@@ -118,7 +110,7 @@
 
     <div class="w-full md:w-3/6 bg-white p-4">
       <h1
-        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
         أوسمة
       </h1>
@@ -136,7 +128,7 @@
 
   <div class="p-4 bg-white">
     <h1
-      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
       مواقع شغلي الأخرى
     </h1>
