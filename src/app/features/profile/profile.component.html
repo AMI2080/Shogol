@@ -19,14 +19,14 @@
     <div class="bg-slate-100 text-[#37383B]">
       <div class="container flex gap-4 pt-10">
         <!-- sidebar -->
-        <div class="bg-white w-1/5 h-screen relative">
+        <div class="bg-white w-1/5 h-fit relative">
           <!-- img -->
           <div
             class="absolute flex justify-center items-center w-full -translate-y-16"
           >
             <div class="img relative">
               <img
-                src="../../../assets/images/profile-image.jpg"
+                src="assets/images/profile-image.jpg"
                 alt="profile-image"
                 class="w-32 h-32 rounded-xl"
               />
@@ -42,7 +42,7 @@
             <div class="flex justify-center items-center gap-2">
               <h1 class="text-xl font-bold">عدنان السوري</h1>
               <img
-                src="../../../assets/images/flag-ksa.png"
+                src="assets/images/flag-ksa.png"
                 alt="flag"
                 class="w-8 h-full"
               />
@@ -80,93 +80,18 @@
           <!-- links -->
           <div class="flex flex-col px-4 pt-6 transition-all">
             <a
-              [routerLink]="['my-profile']"
+              *ngFor="let link of links"
+              [routerLink]="[link.path]"
               routerLinkActive="router-link-active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              [ngClass]="{
+                'before:absolute before:block before:w-2.5 before:h-2.5 before:bg-[#FCBF2A] before:rounded-full before:-translate-x-20':
+                  link.special
+              }"
               class="w-full border-b py-3 transition-all hover:p-5"
             >
-              <i class="fa-solid fa-user"></i>
-              <span class="pr-3">الحساب الشخصــي</span>
-            </a>
-
-            <a
-              [routerLink]="['offers']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-solid fa-clipboard-check"></i>
-              <span class="pr-3">العروض</span>
-            </a>
-
-            <a
-              [routerLink]="['ads']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-solid fa-bullhorn"></i>
-              <span class="pr-3">إعلاناتي</span>
-            </a>
-
-            <a
-              [routerLink]="['custumer-requests']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-sharp fa-solid fa-people-group"></i>
-              <span class="pr-3">طلبات العملاء</span>
-            </a>
-
-            <a
-              [routerLink]="['my-requests']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-solid fa-clipboard-list"></i>
-              <span class="pr-3">طلباتي</span>
-            </a>
-
-            <a
-              [routerLink]="['notifications']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-solid fa-message-captions"></i>
-              <span class="pr-3">الإشعارات</span>
-            </a>
-
-            <a
-              [routerLink]="['edit-profile']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-solid fa-user-pen"></i>
-              <span class="pr-3">تعديل حسابي</span>
-            </a>
-
-            <a
-              [routerLink]="['wallet']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-solid fa-wallet"></i>
-              <span class="pr-3">المحفظة الإلكترونية</span>
-            </a>
-
-            <a
-              [routerLink]="['settings']"
-              routerLinkActive="router-link-active"
-              class="w-full border-b py-3 transition-all hover:p-4"
-            >
-              <i class="fa-solid fa-gear"></i>
-              <span class="pr-3">اعدادات الحساب</span>
-            </a>
-
-            <a
-              [routerLink]="['log-out']"
-              routerLinkActive="router-link-active"
-              class="w-full py-3"
-            >
-              <i class="fa-solid fa-right-from-bracket"></i>
-              <span class="pr-3">تسجيل الخروج</span>
+              <i [class]="link.icon"></i>
+              <span class="pr-3">{{ link.text }}</span>
             </a>
           </div>
         </div>

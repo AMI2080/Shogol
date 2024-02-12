@@ -7,8 +7,8 @@
     </h1>
     <div class="font-semibold">
       <p class="pb-3">
-        <span class="font-bold pl-2">البريد الإلكتروني </span
-        >adnan20222&#64;gmail.com
+        <span class="font-bold pl-2">البريد الإلكتروني </span>
+        {{ "adnan20222@gmail.com" }}
       </p>
       <p class="pb-3">
         <span class="font-bold pl-2">رقم الجوال </span>96600000000000+
@@ -45,19 +45,10 @@
     </h1>
     <div class="flex flex-wrap">
       <p
+        *ngFor="let specialty of specialties"
         class="flex w-fit font-semibold text-teal-500 border-2 border-teal-500 rounded-xl mt-3 mx-1 px-3 py-2 hover:bg-[rgba(30,170,173,1)] hover:text-white transition-all"
       >
-        تصميم مواقع
-      </p>
-      <p
-        class="flex w-fit font-semibold text-teal-500 border-2 border-teal-500 rounded-xl mt-3 mx-1 px-3 py-2 hover:bg-[rgba(30,170,173,1)] hover:text-white transition-all"
-      >
-        إنشاء موقع إلكتروني
-      </p>
-      <p
-        class="flex w-fit font-semibold text-teal-500 border-2 border-teal-500 rounded-xl mt-3 mx-1 px-3 py-2 hover:bg-[rgba(30,170,173,1)] hover:text-white transition-all"
-      >
-        إنشاء موقع إلكتروني
+        {{ specialty.text }}
       </p>
     </div>
   </div>
@@ -68,34 +59,20 @@
     >
       الشهادات والدورات
     </h1>
-    <div class="flex justify-between items-center pb-3">
-      <p>جافاسكربت</p>
+    <div
+      *ngFor="let certificate of certificates"
+      class="flex justify-between items-center pb-3"
+    >
+      <p>{{ certificate.name }}</p>
       <div class="flex gap-2">
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-      </div>
-    </div>
-    <div class="flex justify-between items-center pb-3">
-      <p>برمجة PHP</p>
-      <div class="flex gap-2">
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-gray-400/50 rounded-sm"></span>
-        <span class="block w-5 h-5 bg-gray-400/50 rounded-sm"></span>
-      </div>
-    </div>
-    <div class="flex justify-between items-center pb-3">
-      <p>لغة جافا</p>
-      <div class="flex gap-2">
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-gray-400/50 rounded-sm"></span>
+        <span
+          *ngFor="let i of ' '.repeat(certificate.rating).split('')"
+          class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"
+        ></span>
+        <span
+          *ngFor="let i of ' '.repeat(5 - certificate.rating).split('')"
+          class="block w-5 h-5 bg-gray-400/50 rounded-sm"
+        ></span>
       </div>
     </div>
   </div>
@@ -106,24 +83,20 @@
     >
       اللغات
     </h1>
-    <div class="flex justify-between items-center pb-3">
-      <p>اللغة العربية</p>
+    <div
+      *ngFor="let language of languages"
+      class="flex justify-between items-center pb-3"
+    >
+      <p>{{ language.name }}</p>
       <div class="flex gap-2">
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-      </div>
-    </div>
-    <div class="flex justify-between items-center pb-3">
-      <p>اللغة الإنجليزية</p>
-      <div class="flex gap-2">
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"></span>
-        <span class="block w-5 h-5 bg-gray-400/50 rounded-sm"></span>
-        <span class="block w-5 h-5 bg-gray-400/50 rounded-sm"></span>
+        <span
+          *ngFor="let i of ' '.repeat(language.rating).split('')"
+          class="block w-5 h-5 bg-[rgba(30,170,173,1)] rounded-sm"
+        ></span>
+        <span
+          *ngFor="let i of ' '.repeat(5 - language.rating).split('')"
+          class="block w-5 h-5 bg-gray-400/50 rounded-sm"
+        ></span>
       </div>
     </div>
   </div>
@@ -136,24 +109,13 @@
         توثيقات
       </h1>
       <div class="flex flex-wrap gap-x-24 gap-y-2">
-        <p>
+        <p *ngFor="let document of documents">
           <i class="fa-solid fa-circle-check text-[#61bf03]"></i>
-          البريد الإلكتروني
-        </p>
-        <p>
-          <i class="fa-solid fa-circle-check text-[#61bf03]"></i> البريد
-          الإلكتروني
-        </p>
-        <p>
-          <i class="fa-solid fa-circle-check text-[#61bf03]"></i> البريد
-          الإلكتروني
-        </p>
-        <p>
-          <i class="fa-solid fa-circle-check text-[#61bf03]"></i> البريد
-          الإلكتروني
+          {{ document.text }}
         </p>
       </div>
     </div>
+
     <div class="w-full md:w-3/6 bg-white p-4">
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
@@ -161,17 +123,12 @@
         أوسمة
       </h1>
       <div class="flex gap-8">
-        <div class="flex flex-col items-center gap-2">
+        <div
+          *ngFor="let badge of badges"
+          class="flex flex-col items-center gap-2"
+        >
           <p><i class="fa-solid fa-tag fa-xl"></i></p>
-          أوسمة
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <p><i class="fa-solid fa-tag fa-xl"></i></p>
-          أوسمة
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <p><i class="fa-solid fa-tag fa-xl"></i></p>
-          أوسمة
+          {{ badge.text }}
         </div>
       </div>
     </div>
