@@ -24,9 +24,10 @@ export class MyProfileComponent {
     { text: 'البريد الإلكتروني' },
     { text: 'البريد الإلكتروني' },
   ];
-  public badges = [
-    { text: 'أوسمة' },
-    { text: 'أوسمة' },
-    { text: 'أوسمة' },
+  public badges = [{ text: 'أوسمة' }, { text: 'أوسمة' }, { text: 'أوسمة' }];
+  public workSites = [
+    { src: 'assets/images/mostaql.png', alt: 'mostaql-img' },
+    { src: 'assets/images/khamsat.png', alt: 'khamsat-img' },
+    { src: 'assets/images/harag.png', alt: 'harag-img' },
   ];
 }

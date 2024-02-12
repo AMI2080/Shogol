@@ -133,4 +133,20 @@
       </div>
     </div>
   </div>
+
+  <div class="p-4 bg-white">
+    <h1
+      class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-[rgba(30,170,173,1)] before:rounded-sm before:translate-y-6"
+    >
+      مواقع شغلي الأخرى
+    </h1>
+    <div class="flex gap-3">
+      <img
+        *ngFor="let workSite of workSites"
+        class="w-14 h-14 object-cover rounded-md"
+        [src]="workSite.src"
+        [alt]="workSite.alt"
+      />
+    </div>
+  </div>
 </div>
