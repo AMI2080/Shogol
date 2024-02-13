@@ -111,17 +111,18 @@
           </div>
 
           <!-- links -->
-          <div class="flex flex-col px-4 pt-6 transition-all">
+          <div class="flex flex-col px-2 pt-6 transition-all">
             <a
-              *ngFor="let link of links"
+              *ngFor="let link of links; let last = last"
               [routerLink]="[link.path]"
               routerLinkActive="text-blue-950 font-bold bg-gray-100/50 w-full pr-4"
               [routerLinkActiveOptions]="{ exact: true }"
               [ngClass]="{
                 'before:absolute before:block before:w-2.5 before:h-2.5 before:bg-yellow-400 before:rounded-full before:-translate-x-20':
-                  link.special
+                  link.special,
+                'border-b': !last
               }"
-              class="w-full border-b py-3 transition-all hover:p-5"
+              class="w-full py-3 transition-all hover:p-5"
             >
               <i [class]="link.icon"></i>
               <span class="pr-3">{{ link.text }}</span>
