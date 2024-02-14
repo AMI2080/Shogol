@@ -1,17 +1,16 @@
 <app-page>
   <ng-container content>
-    <section class="container py-5">
-    <div class="head px-md-5">
+    <section class="container py-5 px-md-5">
+    <div class="head ">
 <a href="#" class=" text-decoration-none">الرئيسية</a>
 <i class="fa-solid fa-angle-left px-2"></i>
 <a href="#" class="text-decoration-none">الأسئلة الشائعة</a>
 </div>
-<h5 class="fs-6 py-3 fw-bold px-md-5">الأسئلة الشائعة</h5>
-
-<div class="px-md-5" *ngFor="let item of questions; let i = index;let last = last">
-  <details [open]="i === 0">
+<h5 class="fs-5 py-3 fw-bold">الأسئلة الشائعة</h5>
+<div  *ngFor="let item of questions; let i = index;let last = last">
+  <details [open]="i === 0" class="py-2">
     <summary class="pb-2">
-      <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center fw-bold">
         {{ item.question }}
         <div class="d-flex align-items-center">   
              <i class="fas fa-plus"></i>
@@ -19,9 +18,9 @@
       </div>
     </div>
     </summary>
-    <p class="text-secondary col-md-6">{{ item.answer }}</p>
+    <p class="text-muted text-opacity-5 col-md-6 py-2">{{ item.answer }}</p>
   </details>
-  <hr *ngIf="!last" class="dashed-border">
+  <div class="linee" *ngIf="!last"></div>
 </div>
 </section>
 </ng-container> 

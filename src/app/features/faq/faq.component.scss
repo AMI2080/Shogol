@@ -1,9 +1,17 @@
-
-hr.dashed-border {
-  width: 98% !important;
-  border-bottom: .5px dashed rgba(204, 204, 204, 0.342);
-  padding-bottom: 8px;
+hr {
+  width: 98%;
+  border: none;
+  border-bottom: 0.5px dashed rgba(204, 204, 204, 0.342);
+  margin: 0 auto;
+  margin-bottom: 8px;
 }
+
+.linee{
+  margin-inline: auto;
+  width: 97%;
+  border-bottom: 1px dashed rgba(204, 204, 204, 0.734);
+}
+
 .head a{
   color: #9e9a9a;
   transition: color .3s;
@@ -39,4 +47,8 @@ details[open] .fa-plus {
 
 details[open] .fa-minus {
   display: inline-block;
+}
+.text-muted{
+  color: #9e9a9a !important;
+
 }
