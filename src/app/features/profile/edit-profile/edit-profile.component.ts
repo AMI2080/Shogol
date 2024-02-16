@@ -74,6 +74,51 @@ interface Region {
             color: #fff;
           }
         }
+        ::ng-deep
+          .ng-select.ng-select-multiple
+          .ng-select-container
+          .ng-value-container
+          .ng-value {
+          background-color: transparent;
+          color: #6b7280;
+          font-weight: 600;
+          font-size: 1rem;
+          padding: 0.2rem 0.5rem 0.5rem 0.5rem;
+          border: 2px solid #6b7280;
+          border-radius: 1rem;
+          margin-right: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+        ::ng-deep
+          .ng-select.ng-select-multiple
+          .ng-select-container
+          .ng-value-container
+          .ng-value
+          .ng-value-icon.left {
+          border: none;
+          font-weight: 600;
+          font-size: 1.5rem;
+        }
+      }
+      // public styles
+      ::ng-deep .ng-select.ng-select-single .ng-select-container {
+        border: none;
+        &:hover {
+          box-shadow: none;
+        }
+        &:focus {
+        }
+      }
+      ::ng-deep
+        .ng-select.ng-select-focused:not(.ng-select-opened)
+        > .ng-select-container {
+        box-shadow: none;
+      }
+      ::ng-deep .ng-select .ng-select-container {
+        border: none;
+        &:hover {
+          box-shadow: none;
+        }
       }
     `,
   ],
@@ -89,16 +134,25 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
         nationalMode: false,
         separateDialCode: false,
         preferredCountries: ['eg'],
-        utilsScript:
-          'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js' +
-          '/utils.js',
-        // formatOnDisplay: true,
+        utilsScript: `https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js`,
+        formatOnDisplay: true,
         autoInsertDialCode: true,
         autoPlaceholder: 'polite',
         placeholderNumberType: 'PERSONAL_NUMBER',
       });
     }
   }
+
+  // #2 / account-type section
+  genders = [
+    { id: 'male', label: 'ذكر', checked: true },
+    { id: 'female', label: 'أنثى', checked: false },
+  ];
+
+  accountTypes = [
+    { id: 'person', label: 'فرد', checked: true },
+    { id: 'company', label: 'مؤسسة', checked: false },
+  ];
 
   // #4 / location section
   countries: Country[] = [
@@ -216,17 +270,6 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
     'برمجة أندرويد',
   ];
   selectedOptions: any[] = [];
-
-  addOption(event: Event) {
-    const option = event;
-    if (!this.selectedOptions.includes(option)) {
-      this.selectedOptions.push(option);
-    }
-  }
-
-  removeOption(index: number) {
-    this.selectedOptions.splice(index, 1);
-  }
 
   // #6 / certificates section
   public certificates: { name: string; rating: number }[] = [
