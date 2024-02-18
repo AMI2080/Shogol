@@ -28,108 +28,15 @@ interface Region {
 
 @Component({
   templateUrl: './edit-profile.component.html',
-  styles: [
-    `
-      // #1 / info section styles
-      ::ng-deep .iti {
-        width: 100%;
-      }
-      ::ng-deep .iti__search-input {
-        outline: none;
-      }
-
-      // #4 / location section styles
-      .section-4 {
-        ::ng-deep .ng-dropdown-panel {
-          background-color: #fff;
-          border: 1px solid #e2e8f0;
-        }
-        ::ng-deep .ng-option {
-          color: #6b7280;
-          padding: 0.5rem;
-          border-bottom: 1px solid #e2e8f0;
-          &.ng-option-marked {
-            color: gray;
-          }
-          &:hover {
-            background-color: #14b8a6;
-            color: #fff;
-          }
-        }
-      }
-
-      // #5 / specialist-fileds section styles
-      .section-5 {
-        ::ng-deep .ng-dropdown-panel {
-          border: 1px solid #e2e8f0;
-        }
-        ::ng-deep .ng-option {
-          color: #6b7280;
-          background-color: #fff;
-          padding: 0.5rem;
-          border-bottom: 1px solid #e2e8f0;
-          &:hover,
-          &.ng-option-marked {
-            background-color: #14b8a6;
-            color: #fff;
-          }
-        }
-        ::ng-deep
-          .ng-select.ng-select-multiple
-          .ng-select-container
-          .ng-value-container
-          .ng-value {
-          background-color: transparent;
-          color: #6b7280;
-          font-weight: 600;
-          font-size: 1rem;
-          padding: 0.2rem 0.5rem 0.5rem 0.5rem;
-          border: 2px solid #6b7280;
-          border-radius: 1rem;
-          margin-right: 0.5rem;
-          margin-bottom: 0.5rem;
-        }
-        ::ng-deep
-          .ng-select.ng-select-multiple
-          .ng-select-container
-          .ng-value-container
-          .ng-value
-          .ng-value-icon.left {
-          border: none;
-          font-weight: 600;
-          font-size: 1.5rem;
-        }
-      }
-      // public styles
-      ::ng-deep .ng-select.ng-select-single .ng-select-container {
-        border: none;
-        &:hover {
-          box-shadow: none;
-        }
-        &:focus {
-        }
-      }
-      ::ng-deep
-        .ng-select.ng-select-focused:not(.ng-select-opened)
-        > .ng-select-container {
-        box-shadow: none;
-      }
-      ::ng-deep .ng-select .ng-select-container {
-        border: none;
-        &:hover {
-          box-shadow: none;
-        }
-      }
-    `,
-  ],
+  styleUrls: ['./edit-profile.component.scss'],
 })
 export class EditProfileComponent implements OnInit, AfterViewInit {
   // #1 / info section / phone number
-  @ViewChild('mobileCode', { static: false }) element!: ElementRef;
+  @ViewChild('mobileCode', { static: false }) phoneNumber!: ElementRef;
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      intlTelInput(this.element.nativeElement, {
+      intlTelInput(this.phoneNumber.nativeElement, {
         initialCountry: 'eg',
         nationalMode: false,
         separateDialCode: false,
@@ -187,20 +94,20 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
     },
   ];
 
-  form!: FormGroup;
+  addressForm!: FormGroup;
 
   get selectedCountry(): Country | undefined {
-    const countryName = this.form.get('selectedCountry')?.value;
+    const countryName = this.addressForm.get('selectedCountry')?.value;
     return this.countries.find((country) => country.name === countryName);
   }
 
   get selectedCity(): City | undefined {
-    const cityName = this.form.get('selectedCity')?.value;
+    const cityName = this.addressForm.get('selectedCity')?.value;
     return this.selectedCountry?.cities.find((city) => city.name === cityName);
   }
 
   get selectedRegion() {
-    return this.form.get('selectedRegion')?.value;
+    return this.addressForm.get('selectedRegion')?.value;
   }
 
   constructor(
@@ -209,7 +116,7 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.form = this.formBuilder.group({
+    this.addressForm = this.formBuilder.group({
       selectedCountry: new FormControl(),
       selectedCity: new FormControl(),
       selectedRegion: new FormControl(),
@@ -217,7 +124,7 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
   }
 
   // #5 / specialist-fileds section
-  options: string[] = [
+  skills: string[] = [
     'فوتوشوب',
     'تصميم جرافيك',
     'اللغة العربية',

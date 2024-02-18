@@ -26,7 +26,7 @@ export class ProfileComponent {
       icon: 'fa-solid fa-message-captions',
       text: 'الإشعارات',
     },
-    { path: 'edit-profile', icon: 'fa-solid fa-user-pen', text: 'تعديل حسابي' },
+    { path: 'edit', icon: 'fa-solid fa-user-pen', text: 'تعديل حسابي' },
     { path: 'wallet', icon: 'fa-solid fa-wallet', text: 'المحفظة الإلكترونية' },
     { path: 'settings', icon: 'fa-solid fa-gear', text: 'اعدادات الحساب' },
     {
