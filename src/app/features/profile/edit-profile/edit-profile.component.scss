@@ -86,3 +86,15 @@
     box-shadow: none;
   }
 }
+
+::ng-deep {
+  [dir=rtl] .iti--allow-dropdown .iti__flag-container,
+  [dir=rtl] .iti--show-selected-dial-code .iti__flag-container {
+    right: auto;
+    left: 0;
+  }
+
+  .iti__country.iti__standard {
+    flex: 1;
+  }
+}

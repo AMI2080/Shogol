@@ -43,14 +43,21 @@
         </div>
 
         <div class="bg-white">
-          <p>رقم الجوال <span class="text-red-600">*</span></p>
-          <div class="mt-2">
-            <input
-              id="mobile_code"
-              #mobileCode
-              class="w-full border border-slate-800 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-            />
-          </div>
+          <label for="mobile_code">رقم الجوال <span class="text-red-600">*</span></label>
+          <div class="mt-2 relative after:absolute after:left-[94px] after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-4/6 after:bg-gray-300 after:[&:has(input:focus)]:bg-teal-500 [&_ul]:max-h-60">
+            <ngx-intl-tel-input
+              dir="ltr"
+              cssClass="w-full border rounded-xl py-2.5 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+              [preferredCountries]="preferredCountries"
+              customPlaceholder="000000"
+              [searchCountryFlag]="true"
+              [searchCountryField]="searchCountryField"
+              [selectedCountryISO]="selectedCountryISO"
+              [separateDialCode]="true"
+              [maxLength]="15"
+              [inputId]="'mobile_code'"
+            ></ngx-intl-tel-input>
+        </div>
         </div>
 
         <div class="bg-white">

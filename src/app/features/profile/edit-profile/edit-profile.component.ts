@@ -1,16 +1,6 @@
-import { isPlatformBrowser } from '@angular/common';
-import {
-  Component,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-  Inject,
-  PLATFORM_ID,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-
-import intlTelInput from 'intl-tel-input';
+import { CountryISO, SearchCountryField } from 'ngx-intl-tel-input';
 
 interface Country {
   name: string;
@@ -30,25 +20,13 @@ interface Region {
   templateUrl: './edit-profile.component.html',
   styleUrls: ['./edit-profile.component.scss'],
 })
-export class EditProfileComponent implements OnInit, AfterViewInit {
+export class EditProfileComponent implements OnInit {
   // #1 / info section / phone number
-  @ViewChild('mobileCode', { static: false }) phoneNumber!: ElementRef;
+  public preferredCountries: CountryISO[] = [CountryISO.Egypt, CountryISO.Syria, CountryISO.SaudiArabia];
 
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      intlTelInput(this.phoneNumber.nativeElement, {
-        initialCountry: 'eg',
-        nationalMode: false,
-        separateDialCode: false,
-        preferredCountries: ['eg'],
-        utilsScript: `https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js`,
-        formatOnDisplay: true,
-        autoInsertDialCode: true,
-        autoPlaceholder: 'polite',
-        placeholderNumberType: 'PERSONAL_NUMBER',
-      });
-    }
-  }
+  public selectedCountryISO: CountryISO = CountryISO.Egypt;
+
+  public searchCountryField: SearchCountryField[] = [SearchCountryField.Iso2, SearchCountryField.Name]
 
   // #2 / account-type section
   genders = [
@@ -110,10 +88,7 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
     return this.addressForm.get('selectedRegion')?.value;
   }
 
-  constructor(
-    private formBuilder: FormBuilder,
-    @Inject(PLATFORM_ID) private platformId: Object,
-  ) {}
+  public constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
     this.addressForm = this.formBuilder.group({
