@@ -217,15 +217,11 @@
             <div class="flex w-full rounded-xl">
               <ng-select
                 formControlName="selectedCountry"
+                [items]="countries"
+                bindLabel="name"
+                bindValue="name"
                 class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
-              >
-                <ng-option
-                  *ngFor="let country of countries"
-                  [value]="country.name"
-                >
-                  {{ country.name }}
-                </ng-option>
-              </ng-select>
+              ></ng-select>
             </div>
           </div>
         </div>
@@ -235,15 +231,11 @@
             <div class="flex w-full rounded-xl">
               <ng-select
                 formControlName="selectedCity"
+                [items]="selectedCountry?.cities || []"
+                bindLabel="name"
+                bindValue="name"
                 class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
-              >
-                <ng-option
-                  *ngFor="let city of selectedCountry?.cities"
-                  [value]="city.name"
-                >
-                  {{ city.name }}
-                </ng-option>
-              </ng-select>
+              ></ng-select>
             </div>
           </div>
         </div>
@@ -253,15 +245,11 @@
             <div class="flex w-full rounded-xl">
               <ng-select
                 formControlName="selectedRegion"
+                [items]="selectedCity?.regions || []"
+                bindLabel="name"
+                bindValue="name"
                 class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
-              >
-                <ng-option
-                  *ngFor="let region of selectedCity?.regions"
-                  [value]="region.name"
-                >
-                  {{ region.name }}
-                </ng-option>
-              </ng-select>
+              ></ng-select>
             </div>
           </div>
         </div>
