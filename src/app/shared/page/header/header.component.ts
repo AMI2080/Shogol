@@ -36,13 +36,6 @@ export class HeaderComponent {
     });
   }
 
-  @HostListener('document:keydown', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && this.isMenuOpen) {
-      this.toggleMenu();
-    }
-  }
-
   public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
