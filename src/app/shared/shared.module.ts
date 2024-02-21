@@ -4,18 +4,23 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PageComponent } from './page/page.component';
 import { HeaderComponent } from './page/header/header.component';
-import { SearchComponent } from './page/header/search/search.component';
 import { FooterComponent } from './page/footer/footer.component';
+import { RouterModule } from '@angular/router';
 
 const sharedComponents = [
   PageComponent,
   HeaderComponent,
-  SearchComponent,
   FooterComponent,
 ];
 
 @NgModule({
-  imports: [CommonModule, NgSelectModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    NgSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule,
+  ],
   declarations: [
     // components
     ...sharedComponents,

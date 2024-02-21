@@ -3,32 +3,57 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  infoLinks: { title: string, url: string }[] = [
-    { title: 'الأسئلة الشائعة', url: '#' },
-    { title: 'ضمان حقوقك', url: '#' },
-    { title: 'شروط الاستخدام', url: '#' }
+  infoLinks = [
+    { title: 'معلومات عن شغل', route: '/routePath' },
+    { title: 'الأسئلة الشائعة', route: '/routePath' },
+    { title: 'ضمان حقوقك', route: '/routePath' },
+    { title: 'شروط الاستخدام', route: '/routePath' },
   ];
 
-  otherLinks: { title: string, url: string }[] = [
-
-    { title: 'الشركاء', url: '#' },
-    { title: 'المقالات', url: '#' },
-    { title: 'مركز المساعدة', url: '#' }
+  otherLinks = [
+    { title: 'الشركاء', route: '/routePath' },
+    { title: 'المقالات', route: '/routePath' },
+    { title: 'مركز المساعدة', route: '/routePath' },
   ];
 
-  pagesLinks: { title: string, url: string }[] = [
-    { title: 'تسجيل جديد', url: '#' },
-    { title: 'قدم كشريك', url: '#' },
-    { title: 'تصفح كل الفئات', url: '#' },
-    { title: 'اتصل بنا', url: '#' }
+  pageLinks = [
+    { title: 'تسجيل جديد', route: '/routePath' },
+    { title: 'قدم كشريك', route: '/routePath' },
+    { title: 'تصفح كل الفئات', route: '/routePath' },
+    { title: 'اتصل بنا', route: '/routePath' },
   ];
-  socialMediaPlatforms: { iconClass: string, href: string }[] = [
-    { iconClass: 'fa-brands fa-facebook fa-fw', href: '#' },
-    { iconClass: 'fa-brands fa-snapchat fa-fw', href: '#' },
-    { iconClass: 'fa-brands fa-twitter fa-fw', href: '#' },
-    { iconClass: 'fa-brands fa-instagram fa-fw', href: '#' }
+
+  appLinks = [
+    {
+      imgSrc: 'assets/images/app-store.png',
+      imgAlt: 'app-store',
+      route: '/routePath',
+    },
+    {
+      imgSrc: 'assets/images/google-play.png',
+      imgAlt: 'google-play',
+      route: '/routePath',
+    },
+  ];
+
+  socialLinks = [
+    {
+      icon: 'fa-brands fa-snapchat fa-xl text-blue-950',
+      route: '/routePath',
+    },
+    {
+      icon: 'fa-brands fa-instagram fa-xl text-blue-950',
+      route: '/routePath',
+    },
+    {
+      icon: 'fa-brands fa-twitter fa-xl text-blue-950',
+      route: '/routePath',
+    },
+    {
+      icon: 'fa-brands fa-facebook-f fa-2xl text-blue-950 translate-y-1.5',
+      route: '/routePath',
+    },
   ];
 }

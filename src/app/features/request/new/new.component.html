@@ -119,6 +119,7 @@
                       bindLabel="name"
                       placeholder="أدخل المهارات هنا:&nbsp;"
                       [(ngModel)]="selectedOptions"
+                      [ngModelOptions]="{ standalone: true }"
                       class="appearance-none focus:outline-none text-gray-500"
                       (change)="addOption($event)"
                     >

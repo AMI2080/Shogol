@@ -1,22 +1,22 @@
-import { Component  , HostListener } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-
-  myLinks: { name: string , link : string}[]= [
-    {  name: 'الرئسية' ,   link : ""},
-    {  name: 'الاعلانات'   , link : "" },
-    {  name: 'الطلبات',   link : "" },
-    {  name: 'المشتغلين'  , link : "" },
+  navLinks = [
+    { path: '', label: 'الرئيسية' },
+    { path: '/ads', label: 'الإعلانات' },
+    { path: '/requests', label: 'الطلبات' },
+    { path: '/workers', label: 'المشتغلين' },
+    { path: '/contact us', label: 'تواصل معنا' },
   ];
-  show : boolean = false ;
 
-  onshow(){
-    this.show = !this.show ;
+  show: boolean = false;
+
+  onshow() {
+    this.show = !this.show;
   }
   // isHeaderFixed : boolean = false;
 
@@ -24,4 +24,6 @@ export class HeaderComponent {
   // onWindowScroll() {
   //   this.isHeaderFixed = window.pageYOffset > 100;
   // }
+
+  ////////////////////////
 }

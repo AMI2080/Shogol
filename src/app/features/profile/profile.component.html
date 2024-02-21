@@ -77,7 +77,12 @@
                   'bg-teal-200/25': isChecked
                 }"
               >
-                <input type="checkbox" class="hidden" [(ngModel)]="isChecked" />
+                <input
+                  type="checkbox"
+                  class="hidden"
+                  [(ngModel)]="isChecked"
+                  [ngModelOptions]="{ standalone: true }"
+                />
                 <span
                   class="absolute top-1 left-1 w-10 h-6 rounded-xl transition duration-500 ease-in-out"
                   [ngClass]="{
