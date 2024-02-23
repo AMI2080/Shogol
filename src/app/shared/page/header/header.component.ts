@@ -1,18 +1,19 @@
-import { isPlatformBrowser } from '@angular/common';
-import {
-  Component,
-  Inject,
-  OnDestroy,
-  OnInit,
-  PLATFORM_ID,
-  Renderer2,
-} from '@angular/core';
+import { Component, HostListener, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
+  styles: [
+    `
+      @media (min-width: 768px) {
+        .mt-3 {
+          margin-top: 0 !important;
+        }
+      }
+    `,
+  ],
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent {
   navLinks = [
     { path: '', label: 'الرئيسية' },
     { path: '/ads', label: 'الإعلانات' },
@@ -21,48 +22,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
     { path: '/contact us', label: 'تواصل معنا' },
   ];
 
-  // show: boolean = false;
-
-  // onshow() {
-  //   this.show = !this.show;
-  // }
-  // isHeaderFixed : boolean = false;
-
-  // @HostListener('window:scroll', [])
-  // onWindowScroll() {
-  //   this.isHeaderFixed = window.pageYOffset > 100;
-  // }
-
-  ////////////////////////
   isMenuOpen = false;
-  resizeListener!: Function;
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private renderer: Renderer2,
-  ) {}
-
-  ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.resizeListener = this.renderer.listen(
-        'window',
-        'resize',
-        (event) => {
-          this.isMenuOpen = event.target.innerWidth >= 768;
-        },
-      );
-    }
+  constructor(private ngZone: NgZone) {
+    this.onResize();
   }
 
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.isMenuOpen = window.innerWidth >= 768;
-    }
+  @HostListener('window:resize')
+  onResize() {
+    this.ngZone.run(() => {
+      if (typeof window !== 'undefined') {
+        this.isMenuOpen = window.innerWidth >= 768;
+      }
+    });
   }
 
-  ngOnDestroy() {
-    if (this.resizeListener) {
-      this.resizeListener();
-    }
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

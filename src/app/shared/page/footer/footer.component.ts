@@ -3,13 +3,22 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
+  styles: [
+    `
+      @media (min-width: 768px) {
+        .text-center {
+          text-align: right !important;
+        }
+      }
+    `,
+  ],
 })
 export class FooterComponent {
   infoLinks = [
     { title: 'معلومات عن شغل', route: '/routePath' },
     { title: 'الأسئلة الشائعة', route: '/routePath' },
     { title: 'ضمان حقوقك', route: '/routePath' },
-    { title: 'شروط الاستخدام', route: '/routePath' },
+    { title: 'شروط الاستخدام', route: '/terms-of-use' },
   ];
 
   otherLinks = [

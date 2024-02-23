@@ -2,7 +2,7 @@
   <div class="pb-24">
     <div class="relative">
       <div
-        class="fixed w-full z-50 md:absolute inset-x-0 top-0 bg-white md:h-2 md:bg-gradient-to-r from-teal-500 to-blue-800"
+        class="fixed w-full z-50 absolute inset-x-0 top-0 bg-white h-2 bg-gradient-to-r from-teal-500 to-blue-800"
       >
         <!-- navbar section -->
         <nav class="container md:flex md:justify-between md:items-center">
@@ -22,28 +22,27 @@
             </a>
 
             <!-- Toggle button -->
-            <button
-              class="sm:block md:hidden lg:hidden"
-              (click)="isMenuOpen = !isMenuOpen"
-            >
-              <i class="fa-solid fa-bars fa-lg"></i>
+            <button class="sm:block md:hidden lg:hidden" (click)="toggleMenu()">
+              <i
+                [ngClass]="
+                  isMenuOpen
+                    ? 'fa-solid fa-xmark fa-2xl transition-all'
+                    : 'fa-solid fa-bars fa-lg transition-all'
+                "
+              ></i>
             </button>
-
             <!-- Navigation links -->
             <ul
-              [class]="
-                isMenuOpen
-                  ? 'flex flex-col md:flex-row md:gap-5 md:items-center z-[-1] md:z-auto md:static bg-white items-end w-full absolute left-0 p-10 md:p-0 top-16 md:top-0'
-                  : 'flex flex-col md:flex-row md:gap-5 md:items-center z-[-1] md:z-auto md:static bg-white items-end w-full absolute left-0 p-10 md:p-0 hidden top-16 md:top-0'
-              "
+              class="flex flex-col md:flex-row md:gap-5 md:items-center md:z-auto md:static bg-white items-end w-full absolute left-0 p-6 pt-0 md:p-0 top-20 md:top-0"
+              [class]="isMenuOpen ? 'flex' : 'hidden'"
             >
-              <!-- Need to fix: mt-0 doesn't work-->
-              <li *ngFor="let link of navLinks" class="mt-3 md:m-0 lg:m-0">
+              <!-- Edit mt-3 class in ts file becucse it do conflict on the css code-->
+              <li *ngFor="let link of navLinks" class="mt-3">
                 <a
                   [routerLink]="[link.path]"
                   [routerLinkActiveOptions]="{ exact: link.path === '' }"
                   routerLinkActive="font-bold hover:border-none"
-                  class="transition-all duration-100 hover:border-b-4 hover:border-teal-500"
+                  class="transition-all duration-150 hover:border-b-4 hover:border-teal-500"
                 >
                   {{ link.label }}
                 </a>
