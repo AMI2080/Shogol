@@ -1,0 +1,466 @@
+<div class="flex flex-col gap-2 text-gray-600 pb-20">
+  <form [formGroup]="addressForm">
+    <!-- #1 / info section -->
+    <div class="p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        معلوماتك الشخصية
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white">
+          <label for="name-ar"
+            >الاسم باللغة العربية <span class="text-red-600">*</span></label
+          >
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="text"
+                name="name-ar"
+                id="name-ar"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                placeholder="محمد الأحمد"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white">
+          <label for="name-en">الاسم باللغة الإنجليزية</label>
+
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="text"
+                name="name-en"
+                id="name-en"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6 text-left"
+                placeholder="Mohammad al-Ahmad"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white">
+          <label for="mobile_code">رقم الجوال <span class="text-red-600">*</span></label>
+          <div class="mt-2 relative after:absolute after:left-[94px] after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-4/6 after:bg-gray-300 after:[&:has(input:focus)]:bg-teal-500 [&_ul]:max-h-60">
+            <ngx-intl-tel-input
+              dir="ltr"
+              cssClass="w-full border rounded-xl py-2.5 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+              [preferredCountries]="preferredCountries"
+              customPlaceholder="000000"
+              [searchCountryFlag]="true"
+              [searchCountryField]="searchCountryField"
+              [selectedCountryISO]="selectedCountryISO"
+              [separateDialCode]="true"
+              [maxLength]="15"
+              [inputId]="'mobile_code'"
+            ></ngx-intl-tel-input>
+        </div>
+        </div>
+
+        <div class="bg-white">
+          <label for="email"
+            >البريد الإلكتروني <span class="text-red-600">*</span></label
+          >
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="request"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                placeholder="Mohammad@gmail.com"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white">
+          <label for="job-title"
+            >المسمى الوظيفي <span class="text-red-600">*</span></label
+          >
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="text"
+                name="job-title"
+                id="job-title"
+                autocomplete="request"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                placeholder="مهندس برمجيات"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white">
+          <p>النوع</p>
+          <div class="flex mt-2 gap-12">
+            <div
+              class="flex items-center gap-x-3"
+              *ngFor="let gender of genders"
+            >
+              <input
+                [id]="gender.id"
+                name="gender"
+                type="radio"
+                class="h-4 w-4"
+                [checked]="gender.checked"
+              />
+              <label [for]="gender.id" class="text-gray-500/75">{{
+                gender.label
+              }}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white">
+          <label>الجنسية <span class="text-red-600">*</span></label>
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="text"
+                name="request"
+                id="request"
+                autocomplete="request"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                placeholder="سعودي"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #2 / account-type section -->
+
+    <div class="p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        نوع الحساب
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white">
+          <div class="flex mt-2 gap-12">
+            <div
+              class="flex items-center gap-x-3"
+              *ngFor="let accountType of accountTypes"
+            >
+              <input
+                [id]="accountType.id"
+                name="account-type"
+                type="radio"
+                class="h-4 w-4"
+                [checked]="accountType.checked"
+              />
+              <label [for]="accountType.id" class="text-gray-500/75">{{
+                accountType.label
+              }}</label>
+            </div>
+          </div>
+
+          <label for="id-check" class="pt-4">
+            رقم الهوية الوطنية أو جواز السفر
+            <span class="text-red-600">*</span>
+          </label>
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="text"
+                name="id-check"
+                id="id-check"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                placeholder="0000000"
+                required
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #3 / about section -->
+
+    <div class="p-4 bg-white mb-2">
+      <label
+        for="about"
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        نبذة عني
+      </label>
+      <div class="col-span-full">
+        <div class="mt-2">
+          <textarea
+            id="about"
+            name="about"
+            rows="6"
+            class="w-full rounded-xl leading-6 border border-slate-800 bg-slate-50 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+            placeholder="اكتب هنا"
+            style="resize: none"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- #4 / location section -->
+
+    <div class="section-4 p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        موقعك
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white">
+          <p>البلد <span class="text-red-600">*</span></p>
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <ng-select
+                formControlName="selectedCountry"
+                [items]="countries"
+                bindLabel="name"
+                bindValue="name"
+                class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+              ></ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white">
+          <p>المدينة <span class="text-red-600">*</span></p>
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <ng-select
+                formControlName="selectedCity"
+                [items]="selectedCountry?.cities || []"
+                bindLabel="name"
+                bindValue="name"
+                class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+              ></ng-select>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white">
+          <p>المنطقة</p>
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <ng-select
+                formControlName="selectedRegion"
+                [items]="selectedCity?.regions || []"
+                bindLabel="name"
+                bindValue="name"
+                class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+              ></ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- #5 / specialist-fileds section -->
+
+    <div class="section-5 p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        مجالات الاختصاص
+      </h1>
+      <div class="col-span-full">
+        <div class="mt-2 rounded-lg border p-2">
+          <!-- dropdown.component.html -->
+          <ng-select
+            [items]="skills"
+            bindLabel="skills"
+            placeholder="أدخل المهارات هنا:&nbsp;"
+            [(ngModel)]="selectedOptions"
+            [ngModelOptions]="{ standalone: true }"
+            [multiple]="true"
+            [closeOnSelect]="false"
+          >
+          </ng-select>
+          <!-- end -->
+        </div>
+      </div>
+    </div>
+
+    <!-- #6 / certificates section -->
+
+    <div class="p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        الشهادات والدورات
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white">
+          <label for="certificate"
+            >اسم الشهادة <span class="text-red-600">*</span></label
+          >
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="text"
+                name="certificate"
+                id="certificate"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                placeholder="علوم الحاسوب"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white flex justify-start items-center pt-4">
+          <p>الكفاءة <span class="text-red-600">*</span></p>
+          <div class="flex gap-2 pr-4">
+            <span
+              *ngFor="let i of [].constructor(certificates[0].rating)"
+              class="block w-5 h-5 bg-gray-400/50 rounded-sm"
+            ></span>
+          </div>
+        </div>
+        <div></div>
+
+        <div class="flex justify-end">
+          <button
+            class="flex items-center font-semibold bg-teal-500 text-white rounded-xl px-3 py-1.5"
+          >
+            <span class="pl-3 pb-1 text-3xl">+</span>أضف مهارة
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- #7 / languages section -->
+
+    <div class="p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        اللغات
+      </h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white">
+          <label for="language"
+            >اللغة <span class="text-red-600">*</span></label
+          >
+          <div class="mt-2">
+            <div class="flex w-full rounded-xl">
+              <input
+                type="text"
+                name="language"
+                id="language"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                placeholder="العربية"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white flex justify-start items-center pt-4">
+          <p>الكفاءة <span class="text-red-600">*</span></p>
+          <div class="flex gap-2 pr-4">
+            <span
+              *ngFor="let i of [].constructor(certificates[0].rating)"
+              class="block w-5 h-5 bg-gray-400/50 rounded-sm"
+            ></span>
+          </div>
+        </div>
+        <div></div>
+
+        <div class="flex justify-end">
+          <button
+            class="flex items-center font-semibold bg-teal-500 text-white rounded-xl px-3 py-1.5"
+          >
+            <span class="pl-3 pb-1 text-3xl">+</span>أضف لغة
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- #8 / showcase section -->
+
+    <div class="p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        صور الاعمال والشهادات
+      </h1>
+      <div class="mt-0 rounded-lg border px-3 py-2">
+        <div
+          class="relative cursor-pointer flex justify-between items-center text-sm"
+        >
+          <label
+            for="file-upload"
+            class="rounded-md bg-transparent font-medium text-gray-500"
+            >صور الاعمال والشهادات</label
+          >
+          <input
+            type="file"
+            name="file-upload"
+            id="file-upload"
+            (change)="onFilesSelected($event)"
+            multiple
+            class="absolute top-0 left-0 opacity-0 w-full h-full cursor-pointer"
+          />
+          <span
+            class="flex items-center font-semibold text-gray-500 border-2 border-gray-400 rounded-2xl px-3 py-1"
+          >
+            <span class="pl-3 pb-1 text-3xl">+</span>تحميل الملفات
+          </span>
+        </div>
+      </div>
+      <div
+        *ngIf="selectedFiles && selectedFiles.length > 0"
+        class="flex flex-wrap gap-2 mt-2"
+      >
+        <div
+          *ngFor="let file of selectedFiles"
+          class="selected-file-box bg-teal-500 hover:bg-teal-500/90 flex items-center w-fit rounded-md p-2 px-3 text-sm font-medium text-white"
+        >
+          <button
+            class="pl-3 cursor-pointer"
+            (click)="cancelFileSelection(file)"
+          >
+            <i class="fa-solid fa-xmark fa-lg" style="color: #fff"></i>
+          </button>
+          {{ file.name }}
+        </div>
+      </div>
+    </div>
+
+    <!-- #9 / links section -->
+
+    <div class="p-4 bg-white mb-2">
+      <h1
+        class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
+      >
+        معلوماتك الشخصية
+      </h1>
+
+      <div
+        *ngFor="let link of socialMediaLinks"
+        class="bg-white grid grid-cols-2 md:grid-cols-12 items-center gap-2"
+      >
+        <label for="{{ link.name }}" class="col-span-2">{{ link.label }}</label>
+        <div class="w-full rounded-xl pb-3 col-span-10">
+          <input
+            type="url"
+            [name]="link.name"
+            [id]="link.name"
+            class="w-full border border-slate-800 rounded-xl py-2.5 px-3 text-left text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+            [placeholder]="link.placeholder"
+            required
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
