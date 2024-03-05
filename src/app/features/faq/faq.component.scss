@@ -1,0 +1,54 @@
+hr {
+  width: 98%;
+  border: none;
+  border-bottom: 0.5px dashed rgba(204, 204, 204, 0.342);
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+.linee{
+  margin-inline: auto;
+  width: 97%;
+  border-bottom: 1px dashed rgba(204, 204, 204, 0.734);
+}
+
+.head a{
+  color: #9e9a9a;
+  transition: color .3s;
+}
+.head i{
+  color: #9e9a9a;
+  transition: color .3s;
+}
+.head a:hover{
+  color: #595858;
+}
+.head i:hover{
+  color: #595858;
+}
+summary{
+  list-style-type: none;
+}
+.fa-plus,
+.fa-minus {
+  font-size: 1.2em; 
+  margin-right: 5px; 
+  display: inline-block;
+}
+
+.fa-minus {
+  display: none;
+}
+
+
+details[open] .fa-plus {
+  display: none;
+}
+
+details[open] .fa-minus {
+  display: inline-block;
+}
+.text-muted{
+  color: #9e9a9a !important;
+
+}
