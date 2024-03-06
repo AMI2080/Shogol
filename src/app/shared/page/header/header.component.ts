@@ -1,5 +1,10 @@
 import { Component, HostListener, NgZone } from '@angular/core';
 
+interface NavLink {
+  path: string;
+  label: string;
+}
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,7 +19,8 @@ import { Component, HostListener, NgZone } from '@angular/core';
   ],
 })
 export class HeaderComponent {
-  navLinks = [
+  public isMenuOpen: boolean = false;
+  public navLinks: NavLink[] = [
     { path: '', label: 'الرئيسية' },
     { path: '/ads', label: 'الإعلانات' },
     { path: '/requests', label: 'الطلبات' },
@@ -22,14 +28,12 @@ export class HeaderComponent {
     { path: '/contact us', label: 'تواصل معنا' },
   ];
 
-  isMenuOpen = false;
-
   constructor(private ngZone: NgZone) {
     this.onResize();
   }
 
   @HostListener('window:resize')
-  onResize() {
+  private onResize(): void {
     this.ngZone.run(() => {
       if (typeof window !== 'undefined') {
         this.isMenuOpen = window.innerWidth >= 768;
@@ -37,7 +41,7 @@ export class HeaderComponent {
     });
   }
 
-  toggleMenu() {
+  public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
 }

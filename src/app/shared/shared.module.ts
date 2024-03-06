@@ -7,7 +7,7 @@ import { HeaderComponent } from './page/header/header.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './page/footer/footer.component';
 
-const sharedComponents = [PageComponent];
+const sharedComponents = [PageComponent, HeaderComponent, FooterComponent];
 
 @NgModule({
   imports: [
@@ -20,8 +20,6 @@ const sharedComponents = [PageComponent];
   declarations: [
     // components
     ...sharedComponents,
-    HeaderComponent,
-    FooterComponent,
   ],
   exports: [
     // components

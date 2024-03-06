@@ -1,14 +1,13 @@
-<div class="relative text-center">
-  <div
-    class="w-full absolute top-0 left-0 right-0 w-full absolute inset-x-0 top-0 h-2 bg-gradient-to-r from-teal-500 to-blue-800"
-  >
+<div class="text-center md:text-start">
+  <div class="w-full absolute h-2 bg-gradient-to-r from-teal-500 to-blue-800">
     <div class="bg-blue-950 mt-2">
       <div class="bg-pattern bg-contain">
         <footer class="container py-14">
           <a
             [routerLink]="['']"
             class="flex items-center py-4 justify-center md:justify-start"
-            ><img
+          >
+            <img
               src="assets/logo-white.svg"
               alt="logo-icon-white"
               class="w-16"
@@ -55,9 +54,7 @@
 
             <ul class="flex flex-col gap-2.5">
               <p class="text-xl font-bold text-teal-500">تابعنا</p>
-              <div
-                class="flex gap-2.5 flex pt-2 justify-center md:justify-start"
-              >
+              <div class="flex gap-2.5 pt-2 justify-center md:justify-start">
                 <li *ngFor="let link of socialLinks">
                   <a
                     [routerLink]="[link.route]"
