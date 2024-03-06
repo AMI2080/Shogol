@@ -8,15 +8,6 @@ interface NavLink {
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styles: [
-    `
-      @media (min-width: 768px) {
-        .mt-3 {
-          margin-top: 0 !important;
-        }
-      }
-    `,
-  ],
 })
 export class HeaderComponent {
   public isMenuOpen: boolean = false;
@@ -39,6 +30,13 @@ export class HeaderComponent {
         this.isMenuOpen = window.innerWidth >= 768;
       }
     });
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent): void {
+    if (event.key === 'Escape' && this.isMenuOpen) {
+      this.toggleMenu();
+    }
   }
 
   public toggleMenu(): void {

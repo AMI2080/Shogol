@@ -1,4 +1,4 @@
-<div class="text-center md:text-start">
+<div class="text-special md:text-start">
   <div class="w-full absolute h-2 bg-gradient-to-r from-teal-500 to-blue-800">
     <div class="bg-blue-950 mt-2">
       <div class="bg-pattern bg-contain">
@@ -22,21 +22,21 @@
           >
             <ul class="flex flex-col gap-2.5 text-xl font-bold">
               <li *ngFor="let link of infoLinks">
-                <a [routerLink]="[link.route]">{{ link.title }}</a>
+                <a [routerLink]="link.route">{{ link.title }}</a>
               </li>
             </ul>
 
             <ul class="flex flex-col gap-2.5">
               <p class="text-xl font-bold text-teal-500">روابط</p>
               <li *ngFor="let link of otherLinks">
-                <a [routerLink]="[link.route]">{{ link.title }}</a>
+                <a [routerLink]="link.route">{{ link.title }}</a>
               </li>
             </ul>
 
             <ul class="flex flex-col gap-2.5">
               <p class="text-xl font-bold text-teal-500">صفحات</p>
               <li *ngFor="let link of pageLinks">
-                <a [routerLink]="[link.route]">{{ link.title }}</a>
+                <a [routerLink]="link.route">{{ link.title }}</a>
               </li>
             </ul>
 
@@ -44,7 +44,7 @@
               <p class="text-xl font-bold text-teal-500">حمل تطبيق شغل</p>
               <li *ngFor="let link of appLinks">
                 <a
-                  [routerLink]="[link.route]"
+                  [routerLink]="link.route"
                   class="flex pt-2 justify-center md:justify-start"
                 >
                   <img [src]="link.imgSrc" [alt]="link.imgAlt" class="w-64" />
@@ -57,7 +57,7 @@
               <div class="flex gap-2.5 pt-2 justify-center md:justify-start">
                 <li *ngFor="let link of socialLinks">
                   <a
-                    [routerLink]="[link.route]"
+                    [routerLink]="link.route"
                     class="bg-white w-10 h-10 rounded-full flex justify-center items-center"
                   >
                     <i [class]="link.icon"></i>

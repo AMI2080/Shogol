@@ -1,3 +1,10 @@
+<!-- trasperent layer for sm size -->
+<div
+  class="md:hidden fixed inset-0 bg-black opacity-50 backdrop-blur-sm z-20"
+  *ngIf="isMenuOpen"
+  (click)="toggleMenu()"
+></div>
+<!-- Header -->
 <div class="pb-24 md:mb-24 lg:pb-48 lg:mb-0">
   <div class="fixed w-full z-50 bg-white pb-24">
     <div class="h-2 bg-gradient-to-r from-teal-500 to-blue-800">
@@ -19,22 +26,25 @@
           </a>
 
           <!-- Toggle button -->
-          <button class="sm:block md:hidden lg:hidden" (click)="toggleMenu()">
+          <button
+            class="sm:block md:hidden lg:hidden outline-none"
+            (click)="toggleMenu()"
+          >
             <i
+              class="transition-all"
               [ngClass]="
                 isMenuOpen
-                  ? 'fa-solid fa-xmark fa-2xl transition-all'
-                  : 'fa-solid fa-bars fa-lg transition-all'
+                  ? 'fa-solid fa-xmark fa-2xl'
+                  : 'fa-solid fa-bars fa-lg'
               "
             ></i>
           </button>
           <!-- Navigation links -->
           <ul
-            class="flex flex-col md:flex-row md:gap-5 md:items-center md:z-auto md:static bg-white items-end w-full absolute left-0 p-6 pt-0 md:p-0 top-20 md:top-0"
+            class="flex flex-col md:flex-row md:gap-5 md:items-center md:z-auto md:static bg-white w-full absolute left-0 p-6 pt-0 md:p-0 top-20 md:top-0"
             [ngClass]="isMenuOpen ? 'flex' : 'hidden'"
           >
-            <!-- Edit mt-3 class in ts file becucse it do conflict on the css code-->
-            <li *ngFor="let link of navLinks" class="mt-3">
+            <li *ngFor="let link of navLinks" class="mt-[1rem] md:mt-0">
               <a
                 [routerLink]="[link.path]"
                 [routerLinkActiveOptions]="{ exact: link.path === '' }"
