@@ -1,0 +1,110 @@
+<!-- trasperent layer for sm size -->
+<div
+  class="md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-20"
+  *ngIf="isMenuOpen"
+  (click)="toggleMenu()"
+></div>
+<!-- Header -->
+<div class="pb-24 md:mb-24 lg:pb-48 lg:mb-0">
+  <div class="fixed w-full z-50 bg-white pb-24">
+    <div class="h-2 bg-gradient-to-r from-teal-500 to-blue-800">
+      <!-- navbar section -->
+      <nav class="container md:flex md:justify-between md:items-center">
+        <div
+          class="flex items-center justify-between p-4 gap-12 text-lg text-blue-950"
+        >
+          <a
+            [routerLink]="['']"
+            routerLinkActive="font-bold"
+            class="flex items-center md:pl-24 lg:pl-0"
+          >
+            <img src="assets/logo.svg" alt="logo-icon" />
+            <div class="text-teal-400 font-black text-sm pr-2">
+              <P> SHOGOL </P>
+              <P>شـــغـــل</P>
+            </div>
+          </a>
+
+          <!-- Toggle button -->
+          <button
+            class="sm:block md:hidden lg:hidden outline-none"
+            (click)="toggleMenu()"
+          >
+            <i
+              class="transition-all"
+              [ngClass]="
+                isMenuOpen
+                  ? 'fa-solid fa-xmark fa-2xl'
+                  : 'fa-solid fa-bars fa-lg'
+              "
+            ></i>
+          </button>
+          <!-- Navigation links -->
+          <ul
+            class="flex flex-col md:flex-row md:gap-5 md:items-center md:z-auto md:static bg-white w-full absolute left-0 p-6 pt-0 md:p-0 top-20 md:top-0"
+            [ngClass]="isMenuOpen ? 'flex' : 'hidden'"
+          >
+            <li *ngFor="let link of navLinks" class="mt-[1rem] md:mt-0">
+              <a
+                [routerLink]="[link.path]"
+                [routerLinkActiveOptions]="{ exact: link.path === '' }"
+                routerLinkActive="font-bold hover:border-none"
+                class="transition-all duration-150 hover:border-b-4 hover:border-teal-500"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="hidden lg:flex lg:gap-3">
+          <button class="bg-slate-200 hover:bg-slate-300 w-10 h-10 rounded-lg">
+            <i class="fa-regular fa-message-lines fa-lg text-teal-500"></i>
+          </button>
+          <button
+            class="bg-slate-200 hover:bg-slate-300 w-10 h-10 rounded-lg before:absolute before:block before:w-2 before:h-2 before:bg-yellow-400 before:rounded-full before:-translate-x-2"
+          >
+            <i class="fa-regular fa-bell fa-lg text-teal-500"></i>
+          </button>
+          <button
+            class="bg-teal-500 hover:bg-teal-600 text-white w-32 h-10 py-2 lg:px-6 lg:mr-4 rounded-lg"
+          >
+            كن مشتغل
+          </button>
+          <button
+            class="text-teal-500 hover:text-teal-600 w-32 h-10 lg:px-3 rounded-lg"
+          >
+            تسجيل الدخول
+          </button>
+        </div>
+      </nav>
+      <!-- search section -->
+      <div
+        class="bg-white translate-y-56 md:translate-y-0 border-t-2 border-slate-200"
+        [ngClass]="isMenuOpen ? 'block' : 'hidden'"
+      >
+        <div class="container flex flex-col md:flex-row items-center gap-3 p-4">
+          <div
+            class="flex w-full border border-slate-800 rounded-lg py-2.5 px-3 text-left text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+          >
+            <input
+              type="text"
+              class="w-full px-3 focus:outline-none"
+              placeholder="أبحث هنا"
+            />
+            <button class="flex items-center text-blue-950 pr-4 border-r-2">
+              المشتغلين
+              <i class="fa-solid fa-caret-down fa-lg pr-2"></i>
+            </button>
+          </div>
+          <p class="text-slate-400">أو</p>
+          <button
+            class="bg-teal-500 w-full md:w-52 hover:bg-teal-600 text-white h-10 px-4 rounded-lg"
+          >
+            أطلب عرض سعر
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

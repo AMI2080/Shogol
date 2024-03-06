@@ -1,0 +1,77 @@
+<div class="text-special md:text-start">
+  <div class="w-full absolute h-2 bg-gradient-to-r from-teal-500 to-blue-800">
+    <div class="bg-blue-950 mt-2">
+      <div class="bg-pattern bg-contain">
+        <footer class="container py-14">
+          <a
+            [routerLink]="['']"
+            class="flex items-center py-4 justify-center md:justify-start"
+          >
+            <img
+              src="assets/logo-white.svg"
+              alt="logo-icon-white"
+              class="w-16"
+            />
+            <div class="text-white font-black text-lg pr-2">
+              <P> SHOGOL </P>
+              <P>شـــغـــل</P>
+            </div>
+          </a>
+          <div
+            class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 text-white pb-10"
+          >
+            <ul class="flex flex-col gap-2.5 text-xl font-bold">
+              <li *ngFor="let link of infoLinks">
+                <a [routerLink]="link.route">{{ link.title }}</a>
+              </li>
+            </ul>
+
+            <ul class="flex flex-col gap-2.5">
+              <p class="text-xl font-bold text-teal-500">روابط</p>
+              <li *ngFor="let link of otherLinks">
+                <a [routerLink]="link.route">{{ link.title }}</a>
+              </li>
+            </ul>
+
+            <ul class="flex flex-col gap-2.5">
+              <p class="text-xl font-bold text-teal-500">صفحات</p>
+              <li *ngFor="let link of pageLinks">
+                <a [routerLink]="link.route">{{ link.title }}</a>
+              </li>
+            </ul>
+
+            <ul class="flex flex-col gap-2.5">
+              <p class="text-xl font-bold text-teal-500">حمل تطبيق شغل</p>
+              <li *ngFor="let link of appLinks">
+                <a
+                  [routerLink]="link.route"
+                  class="flex pt-2 justify-center md:justify-start"
+                >
+                  <img [src]="link.imgSrc" [alt]="link.imgAlt" class="w-64" />
+                </a>
+              </li>
+            </ul>
+
+            <ul class="flex flex-col gap-2.5">
+              <p class="text-xl font-bold text-teal-500">تابعنا</p>
+              <div class="flex gap-2.5 pt-2 justify-center md:justify-start">
+                <li *ngFor="let link of socialLinks">
+                  <a
+                    [routerLink]="link.route"
+                    class="bg-white w-10 h-10 rounded-full flex justify-center items-center"
+                  >
+                    <i [class]="link.icon"></i>
+                  </a>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </footer>
+        <p class="flex justify-center bg-indigo-950/75 text-white/75 py-3">
+          Copyright ©2021 All rights reserved | Shogl Platform by lun startup
+          studio
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
