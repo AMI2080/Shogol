@@ -1,4 +1,5 @@
 import { Component, HostListener, NgZone } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 interface NavLink {
   path: string;
@@ -19,8 +20,17 @@ export class HeaderComponent {
     { path: '/contact us', label: 'تواصل معنا' },
   ];
 
-  constructor(private ngZone: NgZone) {
+  constructor(
+    private ngZone: NgZone,
+    public translate: TranslateService,
+  ) {
     this.onResize();
+
+    translate.addLangs(['en', 'ar']);
+    translate.setDefaultLang('en');
+
+    const browserLang = translate.getBrowserLang();
+    translate.use('en');
   }
 
   @HostListener('window:resize')

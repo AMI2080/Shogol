@@ -6,6 +6,7 @@ import { PageComponent } from './page/page.component';
 import { HeaderComponent } from './page/header/header.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './page/footer/footer.component';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 const sharedComponents = [PageComponent, HeaderComponent, FooterComponent];
 
@@ -16,6 +17,7 @@ const sharedComponents = [PageComponent, HeaderComponent, FooterComponent];
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
+    BsDropdownModule.forRoot(),
   ],
   declarations: [
     // components

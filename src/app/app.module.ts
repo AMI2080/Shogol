@@ -8,10 +8,34 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, SharedModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    SharedModule,
+    AppRoutingModule,
+    TooltipModule.forRoot(),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+    }),
+  ],
   providers: [provideClientHydration(), provideAnimations()],
   bootstrap: [AppComponent],
 })

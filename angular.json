@@ -55,10 +55,7 @@
               "node_modules/@ng-select/ng-select/scss/default.theme.scss",
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/@popperjs/core/dist/umd/popper-base.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
+            "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
