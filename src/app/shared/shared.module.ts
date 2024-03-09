@@ -7,6 +7,13 @@ import { HeaderComponent } from './page/header/header.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './page/footer/footer.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 const sharedComponents = [PageComponent, HeaderComponent, FooterComponent];
 
@@ -18,6 +25,14 @@ const sharedComponents = [PageComponent, HeaderComponent, FooterComponent];
     FormsModule,
     RouterModule,
     BsDropdownModule.forRoot(),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   declarations: [
     // components

@@ -51,7 +51,7 @@
                 routerLinkActive="font-bold hover:border-none"
                 class="transition-all duration-150 hover:border-b-4 hover:border-teal-500"
               >
-                {{ link.label }}
+                {{ link.label | translate }}
               </a>
             </li>
           </ul>
@@ -68,18 +68,20 @@
             </button>
             <ul *dropdownMenu class="dropdown-menu min-w-fit" role="menu">
               <li role="menuitem">
-                <a
+                <button
                   class="dropdown-item dropdown-item hover:bg-teal-500 hover:text-white active:bg-teal-500"
-                  href="#"
-                  >AR</a
+                  (click)="translate.use('ar')"
                 >
+                  AR
+                </button>
               </li>
               <li role="menuitem">
-                <a
+                <button
                   class="dropdown-item dropdown-item hover:bg-teal-500 hover:text-white active:bg-teal-500"
-                  href="#"
-                  >EN</a
+                  (click)="translate.use('en')"
                 >
+                  EN
+                </button>
               </li>
             </ul>
           </div>
@@ -95,12 +97,12 @@
           <button
             class="bg-teal-500 hover:bg-teal-600 text-white w-32 h-10 py-2 lg:px-6 lg:mr-4 rounded-lg"
           >
-            كن مشتغل
+            {{ "translate_be-worker" | translate }}
           </button>
           <button
             class="text-teal-500 hover:text-teal-600 w-32 h-10 lg:px-3 rounded-lg"
           >
-            تسجيل الدخول
+            {{ "translate_log-in" | translate }}
           </button>
         </div>
       </nav>
@@ -116,18 +118,18 @@
             <input
               type="text"
               class="w-full px-3 focus:outline-none"
-              placeholder="أبحث هنا"
+              placeholder="{{ 'translate_search_here' | translate }}"
             />
             <button class="flex items-center text-blue-950 pr-4 border-r-2">
-              المشتغلين
+              {{ "translate_workers" | translate }}
               <i class="fa-solid fa-caret-down fa-lg pr-2"></i>
             </button>
           </div>
-          <p class="text-slate-400">أو</p>
+          <p class="text-slate-400">{{ "translate_or" | translate }}</p>
           <button
             class="bg-teal-500 w-full md:w-52 hover:bg-teal-600 text-white h-10 px-4 rounded-lg"
           >
-            أطلب عرض سعر
+            {{ "translate_request_a_price" | translate }}
           </button>
         </div>
       </div>

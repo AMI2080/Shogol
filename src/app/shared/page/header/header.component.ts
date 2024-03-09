@@ -13,11 +13,11 @@ interface NavLink {
 export class HeaderComponent {
   public isMenuOpen: boolean = false;
   public navLinks: NavLink[] = [
-    { path: '', label: 'الرئيسية' },
-    { path: '/ads', label: 'الإعلانات' },
-    { path: '/requests', label: 'الطلبات' },
-    { path: '/workers', label: 'المشتغلين' },
-    { path: '/contact us', label: 'تواصل معنا' },
+    { path: '', label: 'translate_home' },
+    { path: '/ads', label: 'translate_ads' },
+    { path: '/requests', label: 'translate_requests' },
+    { path: '/workers', label: 'translate_workers' },
+    { path: '/contact us', label: 'translate_contact_us' },
   ];
 
   constructor(
@@ -26,11 +26,7 @@ export class HeaderComponent {
   ) {
     this.onResize();
 
-    translate.addLangs(['en', 'ar']);
-    translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-    translate.use('en');
+    translate.setDefaultLang('ar');
   }
 
   @HostListener('window:resize')
@@ -51,5 +47,9 @@ export class HeaderComponent {
 
   public toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  changeLang(language: string) {
+    this.translate.use(language);
   }
 }

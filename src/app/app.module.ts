@@ -32,9 +32,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
         deps: [HttpClient],
       },
     }),
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-    }),
   ],
   providers: [provideClientHydration(), provideAnimations()],
   bootstrap: [AppComponent],

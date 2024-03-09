@@ -1,7 +1,12 @@
 {
-  "HOME": "الرئيسية",
-  "ADS": "الإعلانات",
-  "REQUESTS": "الطلبات",
-  "WORKERS": "المشتغلين",
-  "CONTACT_US": "تواصل معنا"
+  "translate_home": "الرئيسية",
+  "translate_ads": "الإعلانات",
+  "translate_requests": "الطلبات",
+  "translate_workers": "المشتغلين",
+  "translate_contact_us": "تواصل معنا",
+  "translate_be-worker": "كن مشتغل",
+  "translate_log-in": "تسجيل الدخول",
+  "translate_request_a_price": "أطلب عرض سعر",
+  "translate_search_here": "أبحث هنا",
+  "translate_or": "أو"
 }

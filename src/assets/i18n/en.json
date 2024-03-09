@@ -1,7 +1,12 @@
 {
-  "HOME": "Home",
-  "ADS": "Ads",
-  "REQUESTS": "Requests",
-  "WORKERS": "Workers",
-  "CONTACT_US": "Contact Us"
+  "translate_home": "Home",
+  "translate_ads": "Ads",
+  "translate_requests": "Requests",
+  "translate_workers": "Workers",
+  "translate_contact_us": "Contact Us",
+  "translate_be-worker": "Be Worker",
+  "translate_log-in": "Log In",
+  "translate_request_a_price": "Request a Price",
+  "translate_search_here": "Search Here",
+  "translate_or": "OR"
 }
