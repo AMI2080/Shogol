@@ -68,12 +68,12 @@
             </button>
             <ul *dropdownMenu class="dropdown-menu min-w-fit" role="menu">
               <button
-                *ngFor="let lang of languages"
+                *ngFor="let lang of ['ar', 'en']"
                 role="menuitem"
                 class="dropdown-item hover:bg-teal-500 hover:text-white active:bg-teal-500"
-                (click)="changeLang(lang.code)"
+                (click)="changeLang(lang)"
               >
-                {{ lang.label }}
+                {{ "translate_lang_" + lang | translate }}
               </button>
             </ul>
           </div>

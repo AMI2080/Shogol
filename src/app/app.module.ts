@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, RendererFactory2 } from '@angular/core';
 import {
   BrowserModule,
   provideClientHydration,
@@ -9,7 +9,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateService,
+} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -34,4 +38,25 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [provideClientHydration(), provideAnimations()],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  public constructor(
+    private rendererFactory: RendererFactory2,
+    translate: TranslateService,
+  ) {
+    let renderer = this.rendererFactory.createRenderer(null, null);
+    translate.onLangChange.subscribe((event: any) => {
+      if (typeof document !== 'undefined') {
+        let htmlTag = document.getElementsByTagName('html')[0];
+        console.log(htmlTag);
+
+        if (event.lang === 'en') {
+          renderer.setAttribute(htmlTag, 'lang', 'en');
+          renderer.setAttribute(htmlTag, 'dir', 'ltr');
+        } else {
+          renderer.setAttribute(htmlTag, 'lang', 'ar');
+          renderer.setAttribute(htmlTag, 'dir', 'rtl');
+        }
+      }
+    });
+  }
+}

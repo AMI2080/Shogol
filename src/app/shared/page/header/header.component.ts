@@ -6,11 +6,6 @@ interface NavLink {
   label: string;
 }
 
-interface Languages {
-  code: string;
-  label: string;
-}
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -25,18 +20,13 @@ export class HeaderComponent {
     { path: '/contact us', label: 'translate_contact_us' },
   ];
 
-  public languages: Languages[] = [
-    { code: 'ar', label: 'AR' },
-    { code: 'en', label: 'EN' },
-  ];
-
   constructor(
     private ngZone: NgZone,
     public translate: TranslateService,
   ) {
     this.onResize();
 
-    translate.setDefaultLang('ar');
+    this.initializeTranslation();
   }
 
   @HostListener('window:resize')
@@ -59,7 +49,27 @@ export class HeaderComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  initializeTranslation(): void {
+    const browserLang = this.translate.getBrowserLang();
+    let langToSet = 'ar'; // default language
+
+    if (typeof localStorage !== 'undefined') {
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang) {
+        langToSet = savedLang;
+      } else if (browserLang) {
+        langToSet = browserLang;
+      }
+    }
+
+    this.translate.setDefaultLang(langToSet);
+    this.translate.use(langToSet);
+  }
+
   public changeLang(language: string): void {
     this.translate.use(language);
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('lang', language);
+    }
   }
 }
