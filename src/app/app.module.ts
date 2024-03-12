@@ -8,7 +8,6 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './features/home/home.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -23,7 +22,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    TooltipModule.forRoot(),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

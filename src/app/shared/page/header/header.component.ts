@@ -6,6 +6,11 @@ interface NavLink {
   label: string;
 }
 
+interface Languages {
+  code: string;
+  label: string;
+}
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,6 +23,11 @@ export class HeaderComponent {
     { path: '/requests', label: 'translate_requests' },
     { path: '/workers', label: 'translate_workers' },
     { path: '/contact us', label: 'translate_contact_us' },
+  ];
+
+  public languages: Languages[] = [
+    { code: 'ar', label: 'AR' },
+    { code: 'en', label: 'EN' },
   ];
 
   constructor(
@@ -49,7 +59,7 @@ export class HeaderComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
-  changeLang(language: string) {
+  public changeLang(language: string): void {
     this.translate.use(language);
   }
 }

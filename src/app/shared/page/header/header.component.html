@@ -67,22 +67,14 @@
               <i class="fa-light fa-globe fa-xl text-teal-500"></i>
             </button>
             <ul *dropdownMenu class="dropdown-menu min-w-fit" role="menu">
-              <li role="menuitem">
-                <button
-                  class="dropdown-item dropdown-item hover:bg-teal-500 hover:text-white active:bg-teal-500"
-                  (click)="translate.use('ar')"
-                >
-                  AR
-                </button>
-              </li>
-              <li role="menuitem">
-                <button
-                  class="dropdown-item dropdown-item hover:bg-teal-500 hover:text-white active:bg-teal-500"
-                  (click)="translate.use('en')"
-                >
-                  EN
-                </button>
-              </li>
+              <button
+                *ngFor="let lang of languages"
+                role="menuitem"
+                class="dropdown-item hover:bg-teal-500 hover:text-white active:bg-teal-500"
+                (click)="changeLang(lang.code)"
+              >
+                {{ lang.label }}
+              </button>
             </ul>
           </div>
 
@@ -97,12 +89,12 @@
           <button
             class="bg-teal-500 hover:bg-teal-600 text-white w-32 h-10 py-2 lg:px-6 lg:mr-4 rounded-lg"
           >
-            {{ "translate_be-worker" | translate }}
+            {{ "translate_be_worker" | translate }}
           </button>
           <button
             class="text-teal-500 hover:text-teal-600 w-32 h-10 lg:px-3 rounded-lg"
           >
-            {{ "translate_log-in" | translate }}
+            {{ "translate_log_in" | translate }}
           </button>
         </div>
       </nav>
