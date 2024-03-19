@@ -1,4 +1,4 @@
-import { NgModule, RendererFactory2 } from '@angular/core';
+import { NgModule, Renderer2 } from '@angular/core';
 import {
   BrowserModule,
   provideClientHydration,
@@ -13,6 +13,7 @@ import {
   TranslateModule,
   TranslateLoader,
   TranslateService,
+  LangChangeEvent,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -39,24 +40,54 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   bootstrap: [AppComponent],
 })
 export class AppModule {
+  // solotion 1
   public constructor(
-    private rendererFactory: RendererFactory2,
+    private renderer: Renderer2,
     translate: TranslateService,
   ) {
-    let renderer = this.rendererFactory.createRenderer(null, null);
-    translate.onLangChange.subscribe((event: any) => {
-      if (typeof document !== 'undefined') {
-        let htmlTag = document.getElementsByTagName('html')[0];
-        console.log(htmlTag);
+    if (
+      typeof document !== 'undefined' &&
+      typeof localStorage !== 'undefined'
+    ) {
+      const lang = localStorage.getItem('lang') ?? 'ar';
+      translate.setDefaultLang(lang);
+      translate.use(lang);
 
-        if (event.lang === 'en') {
-          renderer.setAttribute(htmlTag, 'lang', 'en');
-          renderer.setAttribute(htmlTag, 'dir', 'ltr');
-        } else {
-          renderer.setAttribute(htmlTag, 'lang', 'ar');
-          renderer.setAttribute(htmlTag, 'dir', 'rtl');
-        }
-      }
-    });
+      translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        const dir = event.lang === 'ar' ? 'rtl' : 'ltr';
+        localStorage.setItem('lang', event.lang);
+        renderer.setAttribute(document.documentElement, 'lang', event.lang);
+        renderer.setAttribute(document.documentElement, 'dir', dir);
+      });
+    }
   }
+
+  // solotion 2
+
+  // private renderer: Renderer2;
+  // public constructor(
+  //   rendererFactory: RendererFactory2,
+  //   translate: TranslateService,
+  // ) {
+  //   this.renderer = rendererFactory.createRenderer(null, null);
+  //   if (
+  //     typeof document !== 'undefined' &&
+  //     typeof localStorage !== 'undefined'
+  //   ) {
+  //     const lang = localStorage.getItem('lang') ?? 'ar';
+  //     translate.setDefaultLang(lang);
+  //     translate.use(lang);
+
+  //     translate.onLangChange.subscribe((event: LangChangeEvent) => {
+  //       const dir = event.lang === 'ar' ? 'rtl' : 'ltr';
+  //       localStorage.setItem('lang', event.lang);
+  //       this.renderer.setAttribute(
+  //         document.documentElement,
+  //         'lang',
+  //         event.lang,
+  //       );
+  //       this.renderer.setAttribute(document.documentElement, 'dir', dir);
+  //     });
+  //   }
+  // }
 }
