@@ -2,24 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './new.component.html',
-  styles: [
-    `
-      ::ng-deep .ng-dropdown-panel {
-        border: 1px solid #e2e8f0;
-      }
-      ::ng-deep .ng-option {
-        color: #6b7280;
-        background-color: #fff;
-        padding: 0.5rem;
-        border-bottom: 1px solid #e2e8f0;
-        &:hover,
-        &.ng-option-marked {
-          background-color: #14b8a6;
-          color: #fff;
-        }
-      }
-    `,
-  ],
+  styleUrls: ['./new.component.scss'],
 })
 export class NewComponent {
   options: string[] = [
@@ -89,15 +72,4 @@ export class NewComponent {
 
   // Select multiple options from options array via select(dropdown menu)
   selectedOptions: any[] = [];
-
-  addOption(event: Event) {
-    const option = event;
-    if (!this.selectedOptions.includes(option)) {
-      this.selectedOptions.push(option);
-    }
-  }
-
-  removeOption(index: number) {
-    this.selectedOptions.splice(index, 1);
-  }
 }
