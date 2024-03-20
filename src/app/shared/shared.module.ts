@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Renderer2, RendererFactory2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -7,8 +7,18 @@ import { HeaderComponent } from './page/header/header.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './page/footer/footer.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {
+  HttpClientModule,
+  HttpClient,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateService,
+  LangChangeEvent,
+} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -42,5 +52,33 @@ const sharedComponents = [PageComponent, HeaderComponent, FooterComponent];
     // components
     ...sharedComponents,
   ],
+  providers: [provideHttpClient(withFetch())],
 })
-export class SharedModule {}
+export class SharedModule {
+  private renderer: Renderer2;
+  public constructor(
+    rendererFactory: RendererFactory2,
+    translate: TranslateService,
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
+    if (
+      typeof document !== 'undefined' &&
+      typeof localStorage !== 'undefined'
+    ) {
+      const lang = localStorage.getItem('lang') ?? 'ar';
+      translate.setDefaultLang('ar');
+      translate.use(lang);
+
+      translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        const dir = event.lang === 'ar' ? 'rtl' : 'ltr';
+        localStorage.setItem('lang', event.lang);
+        this.renderer.setAttribute(
+          document.documentElement,
+          'lang',
+          event.lang,
+        );
+        this.renderer.setAttribute(document.documentElement, 'dir', dir);
+      });
+    }
+  }
+}
