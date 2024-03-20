@@ -60,7 +60,7 @@ export class SharedModule {
   public constructor(
     rendererFactory: RendererFactory2,
     translate: TranslateService,
-    private titleService: Title,
+    titleService: Title,
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
     if (
@@ -80,9 +80,7 @@ export class SharedModule {
           event.lang,
         );
         this.renderer.setAttribute(document.documentElement, 'dir', dir);
-        this.titleService.setTitle(
-          event.lang === 'ar' ? 'شـــغـــل' : 'SHOGOL',
-        );
+        titleService.setTitle(translate.instant('translate_title'));
       });
     }
   }

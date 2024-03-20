@@ -2,13 +2,13 @@
   <ng-container content>
     <div class="bg-teal-500">
       <div class="container mx-auto p-16 pt-44">
-        <h1 class="font-bold text-white text-6xl pb-8">طلب عرض سعر..</h1>
+        <h1 class="font-bold text-white text-6xl pb-8">
+          {{ "translate_request_a_Price" | translate }}
+        </h1>
         <p
           class="font-light text-white text-2xl leading-10 max-w-screen-lg pb-20"
         >
-          هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي
-          القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة
-          التي يقرأها
+          {{ "translate_request_a_Price_descrption" | translate }}
         </p>
       </div>
     </div>
@@ -24,8 +24,9 @@
                   <label
                     for="request"
                     class="text-blue-950 block text-lg font-bold"
-                    >عنوان الطلب</label
                   >
+                    {{ "translate_request_title" | translate }}
+                  </label>
                   <div class="mt-2">
                     <div
                       class="flex w-full rounded-md ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600"
@@ -35,8 +36,10 @@
                         name="request"
                         id="request"
                         autocomplete="request"
-                        class="block flex-1 w-full border border-slate-800 bg-slate-50 rounded-md py-1.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                        placeholder="علي سبيل المثال , ببناء موقع علي شبكة الانترنت"
+                        class="block flex-1 w-full border border-slate-800 bg-slate-50 rounded-md py-1.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                        placeholder="{{
+                          'translate_request_title_placeholder' | translate
+                        }}"
                       />
                     </div>
                   </div>
@@ -46,19 +49,18 @@
                   <label
                     for="about"
                     class="text-blue-950 block text-lg font-bold leading-6"
-                    >اكتب تفاصيل الطلب</label
                   >
+                    {{ "translate_request_description" | translate }}
+                  </label>
                   <div class="mt-2">
                     <textarea
                       id="about"
                       name="about"
                       rows="6"
-                      class="block w-full rounded-md leading-6 border border-slate-800 bg-slate-50 pr-4 py-2 pb-0 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                      placeholder="التفاصيل:
-
-الميزانية:
-حضور او عن بعد:
-الوقت او المدة للتنفيذ:"
+                      class="block w-full rounded-md leading-6 border border-slate-800 bg-slate-50 ps-4 py-2 pb-0 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                      placeholder="{{
+                        'translate_request_description_placeholder' | translate
+                      }}"
                       style="resize: none"
                     ></textarea>
                   </div>
@@ -71,9 +73,9 @@
                       <label
                         for="file-upload"
                         class="rounded-md bg-transparent font-medium text-gray-400"
-                        >اسحب وافلت أي الصور او مستندات قد تكون مفيدة في شرح
-                        موجزك هنا (الحد الاقصي لحجم الملف:25 مبجا بايت)</label
                       >
+                        {{ "translate_upload_file_placeholder" | translate }}
+                      </label>
                       <input
                         type="file"
                         name="file-upload"
@@ -85,7 +87,8 @@
                       <span
                         class="flex items-center font-semibold text-gray-500 border-2 border-gray-400 rounded-2xl px-3 py-1"
                       >
-                        <span class="pl-3 pb-1 text-3xl">+</span>تحميل الملفات
+                        <span class="pe-3 pb-1 text-3xl">+</span>
+                        {{ "translate_upload_file" | translate }}
                       </span>
                     </div>
                   </div>
@@ -98,7 +101,7 @@
                       class="selected-file-box bg-teal-500 hover:bg-teal-500/90 flex items-center w-fit rounded-md p-2 px-3 text-sm font-medium text-white"
                     >
                       <button
-                        class="pl-3 cursor-pointer"
+                        class="pe-3 cursor-pointer"
                         (click)="cancelFileSelection(file)"
                       >
                         <i
@@ -117,7 +120,9 @@
                     <ng-select
                       [items]="options"
                       bindLabel="name"
-                      placeholder="أدخل المهارات هنا:&nbsp;"
+                      placeholder="{{
+                        'translate_enter_skills_here' | translate
+                      }}"
                       [(ngModel)]="selectedOptions"
                       class="appearance-none focus:outline-none text-gray-500"
                       (change)="addOption($event)"
@@ -132,7 +137,7 @@
                         "
                         class="flex w-fit font-semibold text-gray-500 border-2 border-gray-400 rounded-xl mt-3 mx-1 px-3 py-2"
                       >
-                        <button (click)="removeOption(i)" class="pl-3">
+                        <button (click)="removeOption(i)" class="pe-3">
                           <i
                             class="fa-solid fa-xmark fa-lg"
                             style="color: #6b7280"
@@ -146,9 +151,7 @@
                 </div>
               </div>
               <p class="font-medium text-gray-400 pt-3">
-                اذا كان طلبك لا يحتاج لمختصين في مجال معين ننصحك بتوجيه طلبك
-                لمجال اي شغل لدينا نخبة من المشتغلين الجاهزون لمساعدتك في اي
-                اختصاص
+                {{ "translate_enter_skills_here_placeholder" | translate }}
               </p>
             </div>
           </div>
@@ -156,15 +159,15 @@
           <div class="mt-6 flex items-center justify-end gap-x-6">
             <button
               type="button"
-              class="text-teal-500 hover:text-teal-500/90 text-sm font-medium pl-5"
+              class="text-teal-500 hover:text-teal-500/90 text-sm font-medium pe-5"
             >
-              رجوع
+              {{ "translate_back" | translate }}
             </button>
             <button
               type="submit"
               class="bg-teal-500 hover:bg-teal-500/90 rounded-md px-12 py-3 text-sm font-medium text-white"
             >
-              إرسال
+              {{ "translate_submit" | translate }}
             </button>
           </div>
         </form>
