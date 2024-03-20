@@ -2,24 +2,25 @@ import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './new.component.html',
-  styles: [
-    `
-      ::ng-deep .ng-dropdown-panel {
-        border: 1px solid #e2e8f0;
-      }
-      ::ng-deep .ng-option {
-        color: #6b7280;
-        background-color: #fff;
-        padding: 0.5rem;
-        border-bottom: 1px solid #e2e8f0;
-        &:hover,
-        &.ng-option-marked {
-          background-color: #14b8a6;
-          color: #fff;
-        }
-      }
-    `,
-  ],
+  styleUrls: ['./new.component.scss'],
+  // styles: [
+  //   `
+  //     ::ng-deep .ng-dropdown-panel {
+  //       border: 1px solid #e2e8f0;
+  //     }
+  //     ::ng-deep .ng-option {
+  //       color: #6b7280;
+  //       background-color: #fff;
+  //       padding: 0.5rem;
+  //       border-bottom: 1px solid #e2e8f0;
+  //       &:hover,
+  //       &.ng-option-marked {
+  //         background-color: #14b8a6;
+  //         color: #fff;
+  //       }
+  //     }
+  //   `,
+  // ],
 })
 export class NewComponent {
   options: string[] = [
