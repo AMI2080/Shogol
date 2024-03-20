@@ -20,6 +20,7 @@ import {
   LangChangeEvent,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Title } from '@angular/platform-browser';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -59,6 +60,7 @@ export class SharedModule {
   public constructor(
     rendererFactory: RendererFactory2,
     translate: TranslateService,
+    private titleService: Title,
   ) {
     this.renderer = rendererFactory.createRenderer(null, null);
     if (
@@ -78,6 +80,9 @@ export class SharedModule {
           event.lang,
         );
         this.renderer.setAttribute(document.documentElement, 'dir', dir);
+        this.titleService.setTitle(
+          event.lang === 'ar' ? 'شـــغـــل' : 'SHOGOL',
+        );
       });
     }
   }

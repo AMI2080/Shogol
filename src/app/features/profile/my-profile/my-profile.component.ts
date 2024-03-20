@@ -5,38 +5,36 @@ import { Component } from '@angular/core';
 })
 export class MyProfileComponent {
   public personalInfo: { label: string; value: string }[] = [
-    { label: 'البريد الإلكتروني', value: 'adnan20222@gmail.com' },
-    { label: 'رقم الجوال', value: '96600000000000+' },
-    { label: 'بلد الإقامة', value: 'السعودية' },
-    { label: 'النوع', value: 'ذكر' },
+    { label: 'translate_email', value: 'adnan20222@gmail.com' },
+    { label: 'translate_phone', value: '96600000000000+' },
+    { label: 'translate_address', value: 'translate_ksa' },
+    { label: 'translate_gender', value: 'translate_male' },
   ];
-  public descriptions: string[] = [
-    'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي"',
-  ];
+  public descriptions: string[] = ['translate_descriptions'];
   public specialties: { text: string }[] = [
-    { text: 'تصميم مواقع' },
-    { text: 'إنشاء موقع إلكتروني' },
-    { text: 'إنشاء موقع إلكتروني' },
+    { text: 'translate_design_website' },
+    { text: 'translate_create_website' },
+    { text: 'translate_create_website' },
   ];
   public certificates: { name: string; rating: number }[] = [
-    { name: 'جافاسكربت', rating: 5 },
-    { name: 'برمجة PHP', rating: 3 },
-    { name: 'لغة جافا', rating: 4 },
+    { name: 'translate_javascript', rating: 5 },
+    { name: 'translate_php', rating: 3 },
+    { name: 'translate_java', rating: 4 },
   ];
   public languages: { name: string; rating: number }[] = [
-    { name: 'اللغة العربية', rating: 5 },
-    { name: 'اللغة الإنجليزية', rating: 3 },
+    { name: 'translate_ar', rating: 5 },
+    { name: 'translate_en', rating: 3 },
   ];
   public documents: { text: string }[] = [
-    { text: 'البريد الإلكتروني' },
-    { text: 'البريد الإلكتروني' },
-    { text: 'البريد الإلكتروني' },
-    { text: 'البريد الإلكتروني' },
+    { text: 'translate_email' },
+    { text: 'translate_email' },
+    { text: 'translate_email' },
+    { text: 'translate_email' },
   ];
   public badges: { text: string }[] = [
-    { text: 'أوسمة' },
-    { text: 'أوسمة' },
-    { text: 'أوسمة' },
+    { text: 'translate_badges' },
+    { text: 'translate_badges' },
+    { text: 'translate_badges' },
   ];
   public workSites: { src: string; alt: string }[] = [
     { src: 'assets/images/mostaql.png', alt: 'mostaql-img' },

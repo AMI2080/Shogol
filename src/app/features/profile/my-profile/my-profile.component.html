@@ -3,12 +3,12 @@
     <h1
       class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
-      معلوماتك الشخصية
+      {{ "translate_your_info" | translate }}
     </h1>
     <div class="font-semibold">
       <p *ngFor="let info of personalInfo" class="pb-3">
-        <span class="font-bold pl-2">{{ info.label }}</span>
-        {{ info.value }}
+        <span class="font-bold pl-2">{{ info.label | translate }}</span>
+        {{ info.value | translate }}
       </p>
     </div>
   </div>
@@ -17,14 +17,14 @@
     <h1
       class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
-      نبذة عني
+      {{ "translate_about_me" | translate }}
     </h1>
     <div>
       <p
         *ngFor="let description of descriptions"
         class="pb-3 pl-10 leading-7 text-gray-400"
       >
-        {{ description }}
+        {{ description | translate }}
       </p>
     </div>
   </div>
@@ -33,14 +33,14 @@
     <h1
       class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
-      مجالات الإختصاص
+      {{ "translate_specialties" | translate }}
     </h1>
     <div class="flex flex-wrap">
       <p
         *ngFor="let specialty of specialties"
         class="flex w-fit font-semibold text-teal-500 border-2 border-teal-500 rounded-xl mt-3 mx-1 px-3 py-2 hover:bg-teal-500 hover:text-white transition-all"
       >
-        {{ specialty.text }}
+        {{ specialty.text | translate }}
       </p>
     </div>
   </div>
@@ -49,13 +49,13 @@
     <h1
       class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
-      الشهادات والدورات
+      {{ "translate_certificates" | translate }}
     </h1>
     <div
       *ngFor="let certificate of certificates"
       class="flex justify-between items-center pb-3"
     >
-      <p>{{ certificate.name }}</p>
+      <p>{{ certificate.name | translate }}</p>
       <div class="flex gap-2">
         <span
           *ngFor="let i of [].constructor(certificate.rating)"
@@ -73,13 +73,13 @@
     <h1
       class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
-      اللغات
+      {{ "translate_languages" | translate }}
     </h1>
     <div
       *ngFor="let language of languages"
       class="flex justify-between items-center pb-3"
     >
-      <p>{{ language.name }}</p>
+      <p>{{ language.name | translate }}</p>
       <div class="flex gap-2">
         <span
           *ngFor="let i of [].constructor(language.rating)"
@@ -98,12 +98,12 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        توثيقات
+        {{ "translate_documents" | translate }}
       </h1>
-      <div class="flex flex-wrap gap-x-24 gap-y-2">
+      <div class="flex flex-wrap gap-x-48 gap-y-2">
         <p *ngFor="let document of documents">
           <i class="fa-solid fa-circle-check text-green-500"></i>
-          {{ document.text }}
+          {{ document.text | translate }}
         </p>
       </div>
     </div>
@@ -112,7 +112,7 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        أوسمة
+        {{ "translate_badges" | translate }}
       </h1>
       <div class="flex gap-8">
         <div
@@ -120,7 +120,7 @@
           class="flex flex-col items-center gap-2"
         >
           <p><i class="fa-solid fa-tag fa-xl"></i></p>
-          {{ badge.text }}
+          {{ badge.text | translate }}
         </div>
       </div>
     </div>
@@ -130,7 +130,7 @@
     <h1
       class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
     >
-      مواقع شغلي الأخرى
+      {{ "translate_work_sites" | translate }}
     </h1>
     <div class="flex gap-3">
       <img

@@ -12,7 +12,7 @@
               alt="logo-icon-white"
               class="w-16"
             />
-            <div class="text-white font-black text-lg pr-2">
+            <div class="text-white font-black text-lg ps-2">
               <P> SHOGOL </P>
               <P>شـــغـــل</P>
             </div>
@@ -22,26 +22,32 @@
           >
             <ul class="flex flex-col gap-2.5 text-xl font-bold">
               <li *ngFor="let link of infoLinks">
-                <a [routerLink]="link.route">{{ link.title }}</a>
+                <a [routerLink]="link.route">{{ link.title | translate }}</a>
               </li>
             </ul>
 
             <ul class="flex flex-col gap-2.5">
-              <p class="text-xl font-bold text-teal-500">روابط</p>
+              <p class="text-xl font-bold text-teal-500">
+                {{ "translate_links" | translate }}
+              </p>
               <li *ngFor="let link of otherLinks">
-                <a [routerLink]="link.route">{{ link.title }}</a>
+                <a [routerLink]="link.route">{{ link.title | translate }}</a>
               </li>
             </ul>
 
             <ul class="flex flex-col gap-2.5">
-              <p class="text-xl font-bold text-teal-500">صفحات</p>
+              <p class="text-xl font-bold text-teal-500">
+                {{ "translate_pages" | translate }}
+              </p>
               <li *ngFor="let link of pageLinks">
-                <a [routerLink]="link.route">{{ link.title }}</a>
+                <a [routerLink]="link.route">{{ link.title | translate }}</a>
               </li>
             </ul>
 
             <ul class="flex flex-col gap-2.5">
-              <p class="text-xl font-bold text-teal-500">حمل تطبيق شغل</p>
+              <p class="text-xl font-bold text-teal-500">
+                {{ "translate_download_app" | translate }}
+              </p>
               <li *ngFor="let link of appLinks">
                 <a
                   [routerLink]="link.route"
@@ -53,7 +59,9 @@
             </ul>
 
             <ul class="flex flex-col gap-2.5">
-              <p class="text-xl font-bold text-teal-500">تابعنا</p>
+              <p class="text-xl font-bold text-teal-500">
+                {{ "translate_follow_us" | translate }}
+              </p>
               <div class="flex gap-2.5 pt-2 justify-center md:justify-start">
                 <li *ngFor="let link of socialLinks">
                   <a

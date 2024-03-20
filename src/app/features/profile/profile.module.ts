@@ -9,6 +9,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
     NgSelectModule,
     ReactiveFormsModule,
     NgxIntlTelInputModule,
+    TranslateModule,
   ],
   declarations: [
     ProfileComponent,
