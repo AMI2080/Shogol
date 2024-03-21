@@ -52,6 +52,7 @@ const sharedComponents = [PageComponent, HeaderComponent, FooterComponent];
   exports: [
     // components
     ...sharedComponents,
+    TranslateModule,
   ],
   providers: [provideHttpClient(withFetch())],
 })

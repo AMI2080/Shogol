@@ -99,9 +99,9 @@
                 id="job-title"
                 autocomplete="request"
                 class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="{{
+                [placeholder]="
                   'translate_job_title_software_engineer' | translate
-                }}"
+                "
                 required
               />
             </div>
@@ -142,9 +142,9 @@
                 id="request"
                 autocomplete="request"
                 class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="{{
+                [placeholder]="
                   'translate_nationality_saudi_arabian' | translate
-                }}"
+                "
                 required
               />
             </div>
@@ -217,7 +217,7 @@
             name="about"
             rows="6"
             class="w-full rounded-xl leading-6 border border-slate-800 bg-slate-50 ps-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
-            placeholder="{{ 'translate_write_here' | translate }}"
+            [placeholder]="'translate_write_here' | translate"
             style="resize: none"
           ></textarea>
         </div>
@@ -298,7 +298,7 @@
           <ng-select
             [items]="skills"
             bindLabel="skills"
-            placeholder="{{ 'translate_enter_skills_here' | translate }}"
+            [placeholder]="'translate_enter_skills_here' | translate"
             [(ngModel)]="selectedOptions"
             [ngModelOptions]="{ standalone: true }"
             [multiple]="true"
@@ -331,7 +331,7 @@
                 name="certificate"
                 id="certificate"
                 class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="{{ 'translate_computing_science' | translate }}"
+                [placeholder]="'translate_computing_science' | translate"
                 required
               />
             </div>
@@ -384,7 +384,7 @@
                 name="language"
                 id="language"
                 class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="{{ 'translate_ar' | translate }}"
+                [placeholder]="'translate_ar' | translate"
                 required
               />
             </div>

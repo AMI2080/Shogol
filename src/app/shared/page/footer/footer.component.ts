@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   infoLinks = [
-    { title: 'translate_info_about_shogoli', route: ['', 'routePath'] },
+    { title: 'translate_info_about_shogol', route: ['', 'routePath'] },
     { title: 'translate_faq', route: ['', 'routePath'] },
     { title: 'translate_guarantee_your_rights', route: ['', 'routePath'] },
     { title: 'translate_terms_of_use', route: '/terms-of-use' },

@@ -7,7 +7,7 @@
     </h1>
     <div class="font-semibold">
       <p *ngFor="let info of personalInfo" class="pb-3">
-        <span class="font-bold pl-2">{{ info.label | translate }}</span>
+        <span class="font-bold pe-2">{{ info.label | translate }}</span>
         {{ info.value | translate }}
       </p>
     </div>
@@ -22,7 +22,7 @@
     <div>
       <p
         *ngFor="let description of descriptions"
-        class="pb-3 pl-10 leading-7 text-gray-400"
+        class="pb-3 pe-10 leading-7 text-gray-400"
       >
         {{ description | translate }}
       </p>

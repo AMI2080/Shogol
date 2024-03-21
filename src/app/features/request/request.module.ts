@@ -6,7 +6,6 @@ import { NewComponent } from './new/new.component';
 import { RequestRoutingModule } from './request-routing.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,7 +14,6 @@ import { TranslateModule } from '@ngx-translate/core';
     RequestRoutingModule,
     NgSelectModule,
     FormsModule,
-    TranslateModule
   ],
   declarations: [RequestComponent, NewComponent],
 })

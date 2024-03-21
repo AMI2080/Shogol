@@ -10,7 +10,7 @@ export class MyProfileComponent {
     { label: 'translate_address', value: 'translate_ksa' },
     { label: 'translate_gender', value: 'translate_male' },
   ];
-  public descriptions: string[] = ['translate_descriptions'];
+  public descriptions: string[] = ['translate_about_me_text'];
   public specialties: { text: string }[] = [
     { text: 'translate_design_website' },
     { text: 'translate_create_website' },

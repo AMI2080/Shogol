@@ -37,9 +37,9 @@
                         id="request"
                         autocomplete="request"
                         class="block flex-1 w-full border border-slate-800 bg-slate-50 rounded-md py-1.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-                        placeholder="{{
+                        [placeholder]="
                           'translate_request_title_placeholder' | translate
-                        }}"
+                        "
                       />
                     </div>
                   </div>
@@ -58,9 +58,9 @@
                       name="about"
                       rows="6"
                       class="block w-full rounded-md leading-6 border border-slate-800 bg-slate-50 ps-4 py-2 pb-0 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-                      placeholder="{{
+                      [placeholder]="
                         'translate_request_description_placeholder' | translate
-                      }}"
+                      "
                       style="resize: none"
                     ></textarea>
                   </div>
@@ -120,9 +120,7 @@
                     <ng-select
                       [items]="options"
                       bindLabel="name"
-                      placeholder="{{
-                        'translate_enter_skills_here' | translate
-                      }}"
+                      [placeholder]="'translate_enter_skills_here' | translate"
                       [(ngModel)]="selectedOptions"
                       class="appearance-none focus:outline-none text-gray-500"
                       (change)="addOption($event)"
