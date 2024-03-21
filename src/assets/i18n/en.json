@@ -109,5 +109,7 @@
   "translate_upload_file_placeholder": "Drag and drop any images or documents that may be helpful in explaining your brief here (maximum file size: 25 MB)",
   "translate_enter_skills_here_placeholder": "If your request does not require specialists in a specific field, we recommend directing your request to any job field. We have a group of workers ready to help you in any specialty",
   "translate_submit": "Submit",
-  "translate_back": "Back"
+  "translate_back": "Back",
+  "translate_terms_of_use_description": "There is a long-established fact that the readable content of a page will distract the reader from focusing on the external form of the text or the layout of the paragraphs on the page he reads. Therefore, Lorem Ipsum is used because it gives a somewhat natural distribution of letters, rather than using 'Here is some text, here is some text', making it look like readable text. Many desktop publishing programs and web page editors now use Lorem Ipsum as a model for the text, and if you enter 'lorem ipsum' into any search engine, many recent websites will appear in the search results. Over the years, new and different versions of Lorem Ipsum text have appeared, sometimes by accident, sometimes deliberately by adding some humorous phrases to it.",
+  "translate_terms_of_use_paragraph": ". There is a long-established fact that the readable content of a page will distract the reader from focusing"
 }
