@@ -112,35 +112,18 @@
                 </div>
 
                 <div class="col-span-full">
-                  <div class="mt-2 rounded-lg border px-3 py-7">
+                  <div class="dropdown mt-2 rounded-lg border px-3 py-3">
                     <!-- dropdown.component.html -->
                     <ng-select
                       [items]="options"
-                      bindLabel="name"
+                      bindLabel="options"
                       placeholder="أدخل المهارات هنا:&nbsp;"
                       [(ngModel)]="selectedOptions"
-                      class="appearance-none focus:outline-none text-gray-500"
-                      (change)="addOption($event)"
+                      [ngModelOptions]="{ standalone: true }"
+                      [multiple]="true"
+                      [closeOnSelect]="false"
                     >
                     </ng-select>
-
-                    <div class="flex flex-wrap">
-                      <div
-                        *ngFor="
-                          let selectedOption of selectedOptions;
-                          let i = index
-                        "
-                        class="flex w-fit font-semibold text-gray-500 border-2 border-gray-400 rounded-xl mt-3 mx-1 px-3 py-2"
-                      >
-                        <button (click)="removeOption(i)" class="pl-3">
-                          <i
-                            class="fa-solid fa-xmark fa-lg"
-                            style="color: #6b7280"
-                          ></i>
-                        </button>
-                        {{ selectedOption }}
-                      </div>
-                    </div>
                     <!-- end -->
                   </div>
                 </div>
