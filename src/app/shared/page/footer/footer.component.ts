@@ -15,23 +15,23 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   infoLinks = [
-    { title: 'معلومات عن شغل', route: ['', 'routePath'] },
-    { title: 'الأسئلة الشائعة', route: ['', 'routePath'] },
-    { title: 'ضمان حقوقك', route: ['', 'routePath'] },
-    { title: 'شروط الاستخدام', route: '/terms-of-use' },
+    { title: 'translate_info_about_shogol', route: ['', 'routePath'] },
+    { title: 'translate_faq', route: ['', 'routePath'] },
+    { title: 'translate_guarantee_your_rights', route: ['', 'routePath'] },
+    { title: 'translate_terms_of_use', route: '/terms-of-use' },
   ];
 
   otherLinks = [
-    { title: 'الشركاء', route: ['', 'routePath'] },
-    { title: 'المقالات', route: ['', 'routePath'] },
-    { title: 'مركز المساعدة', route: ['', 'routePath'] },
+    { title: 'translate_partners', route: ['', 'routePath'] },
+    { title: 'translate_articles', route: ['', 'routePath'] },
+    { title: 'translate_help_center', route: ['', 'routePath'] },
   ];
 
   pageLinks = [
-    { title: 'تسجيل جديد', route: ['', 'routePath'] },
-    { title: 'قدم كشريك', route: ['', 'routePath'] },
-    { title: 'تصفح كل الفئات', route: ['', 'routePath'] },
-    { title: 'اتصل بنا', route: ['', 'routePath'] },
+    { title: 'translate_new_sign_up', route: ['', 'routePath'] },
+    { title: 'translate_provid_partner', route: ['', 'routePath'] },
+    { title: 'translate_browse_categories', route: ['', 'routePath'] },
+    { title: 'translate_call_us', route: ['', 'routePath'] },
   ];
 
   appLinks = [

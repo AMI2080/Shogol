@@ -22,21 +22,28 @@ interface Region {
 })
 export class EditProfileComponent implements OnInit {
   // #1 / info section / phone number
-  public preferredCountries: CountryISO[] = [CountryISO.Egypt, CountryISO.Syria, CountryISO.SaudiArabia];
+  public preferredCountries: CountryISO[] = [
+    CountryISO.Egypt,
+    CountryISO.Syria,
+    CountryISO.SaudiArabia,
+  ];
 
   public selectedCountryISO: CountryISO = CountryISO.Egypt;
 
-  public searchCountryField: SearchCountryField[] = [SearchCountryField.Iso2, SearchCountryField.Name]
+  public searchCountryField: SearchCountryField[] = [
+    SearchCountryField.Iso2,
+    SearchCountryField.Name,
+  ];
 
   // #2 / account-type section
   genders = [
-    { id: 'male', label: 'ذكر', checked: true },
-    { id: 'female', label: 'أنثى', checked: false },
+    { id: 'male', label: 'translate_male', checked: true },
+    { id: 'female', label: 'translate_female', checked: false },
   ];
 
   accountTypes = [
-    { id: 'person', label: 'فرد', checked: true },
-    { id: 'company', label: 'مؤسسة', checked: false },
+    { id: 'person', label: 'translate_personal', checked: true },
+    { id: 'company', label: 'translate_company', checked: false },
   ];
 
   // #4 / location section
@@ -175,23 +182,55 @@ export class EditProfileComponent implements OnInit {
 
   // #8 / links section
   socialMediaLinks = [
-    { label: 'حراج', name: 'haraj', placeholder: 'haraj.com.sa/username' },
-    { label: 'مستقل', name: 'mostaql', placeholder: 'mostaql.com/username' },
-    { label: 'بحر', name: 'baher', placeholder: 'baher.com/username' },
-    { label: 'بنترست', name: 'pintrest', placeholder: 'pintrest.com/username' },
     {
-      label: 'فري لانسر',
+      label: 'translate_haraj',
+      name: 'haraj',
+      placeholder: 'haraj.com.sa/username',
+    },
+    {
+      label: 'translate_mostaql',
+      name: 'mostaql',
+      placeholder: 'mostaql.com/username',
+    },
+    {
+      label: 'translate_baher',
+      name: 'baher',
+      placeholder: 'baher.com/username',
+    },
+    {
+      label: 'translate_pintrest',
+      name: 'pintrest',
+      placeholder: 'pintrest.com/username',
+    },
+    {
+      label: 'translate_freelancer',
       name: 'freelancer',
       placeholder: 'freelancer.com/username',
     },
-    { label: 'اب ورك', name: 'upWork', placeholder: 'upWork.com/username' },
     {
-      label: 'انستقرام',
+      label: 'translate_upwork',
+      name: 'Upwork ',
+      placeholder: 'Upwork .com/username',
+    },
+    {
+      label: 'translate_instagram',
       name: 'instagram',
       placeholder: 'instagram.com/username',
     },
-    { label: 'تويتر', name: 'twitter', placeholder: 'twitter.com/username' },
-    { label: 'فيسبوك', name: 'facebook', placeholder: 'facebook.com/username' },
-    { label: 'أخرى', name: 'other', placeholder: 'other.com/username' },
+    {
+      label: 'translate_twitter',
+      name: 'twitter',
+      placeholder: 'twitter.com/username',
+    },
+    {
+      label: 'translate_facebook',
+      name: 'facebook',
+      placeholder: 'facebook.com/username',
+    },
+    {
+      label: 'translate_other',
+      name: 'other',
+      placeholder: 'other.com/username',
+    },
   ];
 }

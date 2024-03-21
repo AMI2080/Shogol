@@ -5,12 +5,13 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        معلوماتك الشخصية
+        {{ "translate_your_info" | translate }}
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="bg-white">
           <label for="name-ar"
-            >الاسم باللغة العربية <span class="text-red-600">*</span></label
+            >{{ "translate_name_in_ar" | translate
+            }}<span class="text-red-600 ms-1">*</span></label
           >
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
@@ -18,7 +19,7 @@
                 type="text"
                 name="name-ar"
                 id="name-ar"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
                 placeholder="محمد الأحمد"
                 required
               />
@@ -27,7 +28,7 @@
         </div>
 
         <div class="bg-white">
-          <label for="name-en">الاسم باللغة الإنجليزية</label>
+          <label for="name-en">{{ "translate_name_in_en" | translate }}</label>
 
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
@@ -35,7 +36,7 @@
                 type="text"
                 name="name-en"
                 id="name-en"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pl-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6 text-left"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
                 placeholder="Mohammad al-Ahmad"
               />
             </div>
@@ -43,8 +44,13 @@
         </div>
 
         <div class="bg-white">
-          <label for="mobile_code">رقم الجوال <span class="text-red-600">*</span></label>
-          <div class="mt-2 relative after:absolute after:left-[94px] after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-4/6 after:bg-gray-300 after:[&:has(input:focus)]:bg-teal-500 [&_ul]:max-h-60">
+          <label for="mobile_code"
+            >{{ "translate_phone" | translate
+            }}<span class="text-red-600 ms-1">*</span></label
+          >
+          <div
+            class="mt-2 relative after:absolute after:left-[94px] after:top-1/2 after:-translate-y-1/2 after:w-[1px] after:h-4/6 after:bg-gray-300 after:[&:has(input:focus)]:bg-teal-500 [&_ul]:max-h-60"
+          >
             <ngx-intl-tel-input
               dir="ltr"
               cssClass="w-full border rounded-xl py-2.5 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
@@ -57,12 +63,13 @@
               [maxLength]="15"
               [inputId]="'mobile_code'"
             ></ngx-intl-tel-input>
-        </div>
+          </div>
         </div>
 
         <div class="bg-white">
           <label for="email"
-            >البريد الإلكتروني <span class="text-red-600">*</span></label
+            >{{ "translate_email" | translate
+            }}<span class="text-red-600 ms-1">*</span></label
           >
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
@@ -71,7 +78,7 @@
                 name="email"
                 id="email"
                 autocomplete="request"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
                 placeholder="Mohammad@gmail.com"
                 required
               />
@@ -81,7 +88,8 @@
 
         <div class="bg-white">
           <label for="job-title"
-            >المسمى الوظيفي <span class="text-red-600">*</span></label
+            >{{ "translate_job_title" | translate
+            }}<span class="text-red-600 ms-1">*</span></label
           >
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
@@ -90,8 +98,10 @@
                 name="job-title"
                 id="job-title"
                 autocomplete="request"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="مهندس برمجيات"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                [placeholder]="
+                  'translate_job_title_software_engineer' | translate
+                "
                 required
               />
             </div>
@@ -99,7 +109,7 @@
         </div>
 
         <div class="bg-white">
-          <p>النوع</p>
+          <p>{{ "translate_gender" | translate }}</p>
           <div class="flex mt-2 gap-12">
             <div
               class="flex items-center gap-x-3"
@@ -113,14 +123,17 @@
                 [checked]="gender.checked"
               />
               <label [for]="gender.id" class="text-gray-500/75">{{
-                gender.label
+                gender.label | translate
               }}</label>
             </div>
           </div>
         </div>
 
         <div class="bg-white">
-          <label>الجنسية <span class="text-red-600">*</span></label>
+          <label
+            >{{ "translate_nationality" | translate }}
+            <span class="text-red-600">*</span></label
+          >
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
               <input
@@ -128,8 +141,10 @@
                 name="request"
                 id="request"
                 autocomplete="request"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="سعودي"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                [placeholder]="
+                  'translate_nationality_saudi_arabian' | translate
+                "
                 required
               />
             </div>
@@ -144,7 +159,7 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        نوع الحساب
+        {{ "translate_account_type" | translate }}
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="bg-white">
@@ -161,13 +176,13 @@
                 [checked]="accountType.checked"
               />
               <label [for]="accountType.id" class="text-gray-500/75">{{
-                accountType.label
+                accountType.label | translate
               }}</label>
             </div>
           </div>
 
           <label for="id-check" class="pt-4">
-            رقم الهوية الوطنية أو جواز السفر
+            {{ "translate_national_id" | translate }}
             <span class="text-red-600">*</span>
           </label>
           <div class="mt-2">
@@ -176,7 +191,7 @@
                 type="text"
                 name="id-check"
                 id="id-check"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
                 placeholder="0000000"
                 required
               />
@@ -193,7 +208,7 @@
         for="about"
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        نبذة عني
+        {{ "translate_about_me" | translate }}
       </label>
       <div class="col-span-full">
         <div class="mt-2">
@@ -201,8 +216,8 @@
             id="about"
             name="about"
             rows="6"
-            class="w-full rounded-xl leading-6 border border-slate-800 bg-slate-50 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
-            placeholder="اكتب هنا"
+            class="w-full rounded-xl leading-6 border border-slate-800 bg-slate-50 ps-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+            [placeholder]="'translate_write_here' | translate"
             style="resize: none"
           ></textarea>
         </div>
@@ -215,11 +230,14 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        موقعك
+        {{ "translate_your_location" | translate }}
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="bg-white">
-          <p>البلد <span class="text-red-600">*</span></p>
+          <p>
+            {{ "translate_country" | translate }}
+            <span class="text-red-600">*</span>
+          </p>
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
               <ng-select
@@ -227,13 +245,16 @@
                 [items]="countries"
                 bindLabel="name"
                 bindValue="name"
-                class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+                class="w-full rounded-xl leading-6 border border-slate-800 ps-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
               ></ng-select>
             </div>
           </div>
         </div>
         <div class="bg-white">
-          <p>المدينة <span class="text-red-600">*</span></p>
+          <p>
+            {{ "translate_city" | translate }}
+            <span class="text-red-600">*</span>
+          </p>
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
               <ng-select
@@ -241,13 +262,13 @@
                 [items]="selectedCountry?.cities || []"
                 bindLabel="name"
                 bindValue="name"
-                class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+                class="w-full rounded-xl leading-6 border border-slate-800 ps-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
               ></ng-select>
             </div>
           </div>
         </div>
         <div class="bg-white">
-          <p>المنطقة</p>
+          <p>{{ "translate_region" | translate }}</p>
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
               <ng-select
@@ -255,7 +276,7 @@
                 [items]="selectedCity?.regions || []"
                 bindLabel="name"
                 bindValue="name"
-                class="w-full rounded-xl leading-6 border border-slate-800 pr-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
+                class="w-full rounded-xl leading-6 border border-slate-800 ps-4 py-2 placeholder:text-gray-400 sm:text-sm sm:leading-6 focus:outline-teal-500"
               ></ng-select>
             </div>
           </div>
@@ -269,7 +290,7 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        مجالات الاختصاص
+        {{ "translate_specialties" | translate }}
       </h1>
       <div class="col-span-full">
         <div class="mt-2 rounded-lg border p-2">
@@ -277,7 +298,7 @@
           <ng-select
             [items]="skills"
             bindLabel="skills"
-            placeholder="أدخل المهارات هنا:&nbsp;"
+            [placeholder]="'translate_enter_skills_here' | translate"
             [(ngModel)]="selectedOptions"
             [ngModelOptions]="{ standalone: true }"
             [multiple]="true"
@@ -295,12 +316,13 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        الشهادات والدورات
+        {{ "translate_certificates" | translate }}
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="bg-white">
-          <label for="certificate"
-            >اسم الشهادة <span class="text-red-600">*</span></label
+          <label for="certificate">
+            {{ "translate_certificate_name" | translate }}
+            <span class="text-red-600">*</span></label
           >
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
@@ -308,8 +330,8 @@
                 type="text"
                 name="certificate"
                 id="certificate"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="علوم الحاسوب"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                [placeholder]="'translate_computing_science' | translate"
                 required
               />
             </div>
@@ -317,8 +339,11 @@
         </div>
 
         <div class="bg-white flex justify-start items-center pt-4">
-          <p>الكفاءة <span class="text-red-600">*</span></p>
-          <div class="flex gap-2 pr-4">
+          <p>
+            {{ "translate_efficiency" | translate }}
+            <span class="text-red-600">*</span>
+          </p>
+          <div class="flex gap-2 ps-4">
             <span
               *ngFor="let i of [].constructor(certificates[0].rating)"
               class="block w-5 h-5 bg-gray-400/50 rounded-sm"
@@ -331,7 +356,8 @@
           <button
             class="flex items-center font-semibold bg-teal-500 text-white rounded-xl px-3 py-1.5"
           >
-            <span class="pl-3 pb-1 text-3xl">+</span>أضف مهارة
+            <span class="pe-3 pb-1 text-3xl">+</span>
+            {{ "translate_add_skill" | translate }}
           </button>
         </div>
       </div>
@@ -343,12 +369,13 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        اللغات
+        {{ "translate_languages" | translate }}
       </h1>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="bg-white">
-          <label for="language"
-            >اللغة <span class="text-red-600">*</span></label
+          <label for="language">
+            {{ "translate_language" | translate }}
+            <span class="text-red-600">*</span></label
           >
           <div class="mt-2">
             <div class="flex w-full rounded-xl">
@@ -356,8 +383,8 @@
                 type="text"
                 name="language"
                 id="language"
-                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 pr-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-                placeholder="العربية"
+                class="w-full border border-slate-800 bg-slate-50 rounded-xl py-2.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+                [placeholder]="'translate_ar' | translate"
                 required
               />
             </div>
@@ -365,8 +392,11 @@
         </div>
 
         <div class="bg-white flex justify-start items-center pt-4">
-          <p>الكفاءة <span class="text-red-600">*</span></p>
-          <div class="flex gap-2 pr-4">
+          <p>
+            {{ "translate_efficiency" | translate }}
+            <span class="text-red-600">*</span>
+          </p>
+          <div class="flex gap-2 ps-4">
             <span
               *ngFor="let i of [].constructor(certificates[0].rating)"
               class="block w-5 h-5 bg-gray-400/50 rounded-sm"
@@ -379,7 +409,8 @@
           <button
             class="flex items-center font-semibold bg-teal-500 text-white rounded-xl px-3 py-1.5"
           >
-            <span class="pl-3 pb-1 text-3xl">+</span>أضف لغة
+            <span class="pe-3 pb-1 text-3xl">+</span>
+            {{ "translate_add_language" | translate }}
           </button>
         </div>
       </div>
@@ -391,7 +422,7 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        صور الاعمال والشهادات
+        {{ "translate_work_and_certificates" | translate }}
       </h1>
       <div class="mt-0 rounded-lg border px-3 py-2">
         <div
@@ -400,8 +431,9 @@
           <label
             for="file-upload"
             class="rounded-md bg-transparent font-medium text-gray-500"
-            >صور الاعمال والشهادات</label
           >
+            {{ "translate_work_and_certificates" | translate }}
+          </label>
           <input
             type="file"
             name="file-upload"
@@ -413,7 +445,8 @@
           <span
             class="flex items-center font-semibold text-gray-500 border-2 border-gray-400 rounded-2xl px-3 py-1"
           >
-            <span class="pl-3 pb-1 text-3xl">+</span>تحميل الملفات
+            <span class="pe-3 pb-1 text-3xl">+</span>
+            {{ "translate_upload_file" | translate }}
           </span>
         </div>
       </div>
@@ -426,7 +459,7 @@
           class="selected-file-box bg-teal-500 hover:bg-teal-500/90 flex items-center w-fit rounded-md p-2 px-3 text-sm font-medium text-white"
         >
           <button
-            class="pl-3 cursor-pointer"
+            class="pe-3 cursor-pointer"
             (click)="cancelFileSelection(file)"
           >
             <i class="fa-solid fa-xmark fa-lg" style="color: #fff"></i>
@@ -442,21 +475,23 @@
       <h1
         class="font-bold pb-6 before:absolute before:block before:w-6 before:h-1 before:bg-teal-500 before:rounded-sm before:translate-y-6"
       >
-        معلوماتك الشخصية
+        {{ "translate_your_info" | translate }}
       </h1>
 
       <div
         *ngFor="let link of socialMediaLinks"
         class="bg-white grid grid-cols-2 md:grid-cols-12 items-center gap-2"
       >
-        <label for="{{ link.name }}" class="col-span-2">{{ link.label }}</label>
+        <label for="{{ link.name }}" class="col-span-2">{{
+          link.label | translate
+        }}</label>
         <div class="w-full rounded-xl pb-3 col-span-10">
           <input
             type="url"
             [name]="link.name"
             [id]="link.name"
             class="w-full border border-slate-800 rounded-xl py-2.5 px-3 text-left text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
-            [placeholder]="link.placeholder"
+            [placeholder]="link.placeholder | translate"
             required
           />
         </div>

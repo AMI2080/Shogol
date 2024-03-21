@@ -16,10 +16,10 @@
           <a
             [routerLink]="['']"
             routerLinkActive="font-bold"
-            class="flex items-center md:pl-24 lg:pl-0"
+            class="flex items-center md:pe-24 lg:pe-0"
           >
             <img src="assets/logo.svg" alt="logo-icon" />
-            <div class="text-teal-400 font-black text-sm pr-2">
+            <div class="text-teal-400 font-black text-sm ps-2">
               <P> SHOGOL </P>
               <P>شـــغـــل</P>
             </div>
@@ -51,30 +51,50 @@
                 routerLinkActive="font-bold hover:border-none"
                 class="transition-all duration-150 hover:border-b-4 hover:border-teal-500"
               >
-                {{ link.label }}
+                {{ link.label | translate }}
               </a>
             </li>
           </ul>
         </div>
 
         <div class="hidden lg:flex lg:gap-3">
+          <div class="btn-group" dropdown>
+            <button
+              dropdownToggle
+              type="button"
+              class="bg-slate-200 hover:bg-slate-300 w-10 h-10 rounded-lg"
+            >
+              <i class="fa-light fa-globe fa-xl text-teal-500"></i>
+            </button>
+            <ul *dropdownMenu class="dropdown-menu min-w-fit" role="menu">
+              <button
+                *ngFor="let lang of ['ar', 'en']"
+                role="menuitem"
+                class="dropdown-item hover:bg-teal-500 hover:text-white active:bg-teal-500"
+                (click)="changeLang(lang)"
+              >
+                {{ "translate_lang_" + lang | translate }}
+              </button>
+            </ul>
+          </div>
+
           <button class="bg-slate-200 hover:bg-slate-300 w-10 h-10 rounded-lg">
             <i class="fa-regular fa-message-lines fa-lg text-teal-500"></i>
           </button>
           <button
-            class="bg-slate-200 hover:bg-slate-300 w-10 h-10 rounded-lg before:absolute before:block before:w-2 before:h-2 before:bg-yellow-400 before:rounded-full before:-translate-x-2"
+            class="bg-slate-200 hover:bg-slate-300 w-10 h-10 rounded-lg before:absolute before:block before:w-2 before:h-2 before:bg-yellow-400 before:rounded-full rtl:before:-translate-x-2 ltr:before:translate-x-6"
           >
             <i class="fa-regular fa-bell fa-lg text-teal-500"></i>
           </button>
           <button
-            class="bg-teal-500 hover:bg-teal-600 text-white w-32 h-10 py-2 lg:px-6 lg:mr-4 rounded-lg"
+            class="bg-teal-500 hover:bg-teal-600 text-white w-32 h-10 py-2 lg:px-6 lg:ms-4 rounded-lg"
           >
-            كن مشتغل
+            {{ "translate_be_worker" | translate }}
           </button>
           <button
             class="text-teal-500 hover:text-teal-600 w-32 h-10 lg:px-3 rounded-lg"
           >
-            تسجيل الدخول
+            {{ "translate_log_in" | translate }}
           </button>
         </div>
       </nav>
@@ -85,23 +105,23 @@
       >
         <div class="container flex flex-col md:flex-row items-center gap-3 p-4">
           <div
-            class="flex w-full border border-slate-800 rounded-lg py-2.5 px-3 text-left text-gray-900 placeholder:text-gray-400 focus:outline-teal-500 sm:text-sm sm:leading-6"
+            class="flex w-full border border-slate-800 rounded-lg py-2.5 px-3 text-left text-gray-900 placeholder:text-gray-400 sm:text-sm sm:leading-6"
           >
             <input
               type="text"
               class="w-full px-3 focus:outline-none"
-              placeholder="أبحث هنا"
+              [placeholder]="'translate_search_here' | translate"
             />
-            <button class="flex items-center text-blue-950 pr-4 border-r-2">
-              المشتغلين
-              <i class="fa-solid fa-caret-down fa-lg pr-2"></i>
+            <button class="flex items-center text-blue-950 ps-6 border-s-2">
+              {{ "translate_workers" | translate }}
+              <i class="fa-solid fa-caret-down fa-lg ps-2"></i>
             </button>
           </div>
-          <p class="text-slate-400">أو</p>
+          <p class="text-slate-400">{{ "translate_or" | translate }}</p>
           <button
             class="bg-teal-500 w-full md:w-52 hover:bg-teal-600 text-white h-10 px-4 rounded-lg"
           >
-            أطلب عرض سعر
+            {{ "translate_request_a_price" | translate }}
           </button>
         </div>
       </div>
