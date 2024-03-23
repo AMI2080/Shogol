@@ -1,10 +1,567 @@
 <app-page>
   <ng-container content>
     <!-- temporary content -->
-    <div class="min-h-[100vh] bg-slate-200">
-      <p class="text-center p-4 text-4xl text-gray-700 font-light">
-        content
-      </p>
-    </div>
+    <!-- Hero section -->
+    <section class="relative min-h-[620px]">
+      <div
+        class="absolute bg-[url('assets/images/hero.jpg')] inset-0 bg-cover ltr:scale-x-[-1] -z-10 rounded-br-[8rem]"
+      ></div>
+      <div class="container p-8 md:p-0">
+        <div class="text-white pt-52">
+          <h1 class="text-6xl font-bold">
+            {{ "translate_shogol_platform" | translate }}
+          </h1>
+          <p class="text-2xl pt-10 max-w-xl leading-10">
+            {{ "translate_shogol_platform_descrption" | translate }}
+          </p>
+          <button
+            class="px-16 py-4 rounded-2xl bg-[white] text-blue-950 mt-4 transition hover:bg-white/75"
+          >
+            {{ "translate_about_platform" | translate }}
+          </button>
+        </div>
+        <ul
+          class="mt-24 pb-32 md:pb-16 md:ps-8 text-white flex flex-col md:flex-row gap-5"
+        >
+          <li class="flex items-center gap-3">
+            <i class="fa-sharp fa-solid fa-sparkles fa-2xl"></i>
+            <p class="text-2xl">
+              {{ "translate_new_concept" | translate }}
+            </p>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-briefcase fa-2xl"></i>
+            <p class="text-2xl">
+              {{ "translate_freedom_of_action" | translate }}
+            </p>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-clock fa-2xl"></i>
+            <p class="text-2xl">
+              {{ "translate_appreciation_of_time" | translate }}
+            </p>
+          </li>
+          <li class="flex items-center gap-3">
+            <i class="fa-solid fa-hands-holding-circle fa-2xl"></i>
+            <p class="text-2xl">
+              {{ "translate_inclusive_services" | translate }}
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- Request-Price section -->
+    <section>
+      <div class="container pt-5 relative">
+        <h1
+          class="text-4xl font-bold text-center my-10 before:absolute before:block before:w-14 before:h-1 before:bg-teal-500 before:rounded-sm before:bottom-[104rem] md:before:bottom-[53.5rem] before:left-[45%] md:before:left-[50%]"
+        >
+          {{ "translate_why_order_a_better_price" | translate }}
+        </h1>
+        <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div class="relative">
+            <p class="text-3xl text-teal-500">
+              {{ "translate_info" | translate }}
+            </p>
+            <h1
+              class="mt-4 text-4xl font-bold before:absolute before:block before:w-14 before:h-1 before:bg-teal-500 before:rounded-sm before:bottom-[39.7rem] md:before:bottom-[43.7rem] after:absolute after:block after:w-14 after:h-1 after:bg-teal-500 after:rounded-sm after:bottom-[39rem] md:after:bottom-[43rem] after:-translate-x-4 ltr:after:translate-x-4"
+            >
+              {{ "translate_why_order_a_price" | translate }}
+            </h1>
+            <div class="mt-20 flex flex-col gap-2 text-slate-400 text-xl">
+              <p>{{ "translate_why_order_a_price_first" | translate }}</p>
+              <p>{{ "translate_why_order_a_price_second" | translate }}</p>
+              <p>{{ "translate_why_order_a_price_third" | translate }}</p>
+              <p>{{ "translate_why_order_a_price_fourth" | translate }}</p>
+            </div>
+            <div class="relative w-full mt-20">
+              <img
+                src="../../../assets/images/team-work.jpg"
+                alt="video"
+                class="w-full -z-10"
+              />
+              <div
+                class="absolute w-full h-full bg-teal-700 -500 opacity-50 z-10 -translate-y-[100%]"
+              ></div>
+            </div>
+          </div>
+          <div class="">
+            <form class="bg-slate-50 p-3 rounded-lg">
+              <label for="request-title" class="text-blue-950 font-bold pb-2">
+                {{ "translate_request_title" | translate }}
+              </label>
+              <input
+                type="text"
+                name="request-title"
+                id="request-title"
+                class="flex-1 w-full bg-white rounded-md py-1.5 ps-3 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+              />
+              <label for="about" class="text-blue-950 font-bold pb-2 pt-4">
+                {{ "translate_request_title_placeholder" | translate }}
+              </label>
+              <textarea
+                id="about"
+                name="about"
+                rows="6"
+                class="w-full rounded-md leading-6 bg-white ps-4 py-2 pb-0 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+                [placeholder]="'translate_describe_your_project' | translate"
+                style="resize: none"
+              ></textarea>
+              <div class="flex justify-end">
+                <button
+                  class="bg-teal-500 text-white rounded-xl px-20 py-3 my-2 transition hover:bg-teal-600"
+                >
+                  <a routerLink="requests">
+                    {{ "translate_next" | translate }}
+                  </a>
+                </button>
+              </div>
+            </form>
+            <div class="flex gap-4 mt-32">
+              <div
+                class="flex flex-col items-center justify-center text-center w-96 h-80 shadow-md rounded-lg p-4 md:p-0"
+              >
+                <i
+                  class="fa-solid fa-comment-dollar text-5xl text-teal-500"
+                ></i>
+                <p class="text-blue-950 font-bold text-xl pt-4">
+                  {{ "translate_reveal_market_pricese" | translate }}
+                </p>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center text-center w-96 h-80 shadow-md rounded-lg p-4 md:p-0"
+              >
+                <i
+                  class="fa-regular fa-calendar-clock text-5xl text-teal-500"
+                ></i>
+                <p class="text-blue-950 font-bold text-xl pt-4">
+                  {{ "translate_saving_time" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- All what you have to do section -->
+    <section>
+      <div class="container pt-5">
+        <h1 class="text-center pt-10 text-6xl font-bold text-teal-500">
+          {{ "translate_all_you_have_to_do" | translate }}
+        </h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0">
+          <div class="pt-20 flex flex-col items-center">
+            <h3 class="w-52 text-3xl font-bold text-teal-500 pb-14 text-center">
+              {{ "translate_all_you_have_to_do_worker" | translate }}
+            </h3>
+            <ul
+              class="flex flex-col items-center gap-[1.9rem] ltr:gap-[2.2rem] relative"
+            >
+              <!-- <div class="w-5 h-5 bg-white border-5 border-teal-500 rounded-full mb-3"></div> -->
+              <img
+                src="../../../assets/images/chart.png"
+                alt="chart"
+                class="absolute max-w-sm -translate-y-12"
+              />
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-lamp-desk fa-xl text-teal-500"></i>
+                <p
+                  class="text-2xl font-bold text-gray-500 border-s-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_discover_yourself" | translate }}
+                </p>
+              </li>
+              <li class="flex items-center gap-2">
+                <p
+                  class="text-2xl font-bold text-gray-500 border-e-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_highlights_of_your_skills" | translate }}
+                </p>
+                <i class="fa-solid fa-chart-network fa-xl text-teal-500"></i>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-solid fa-people-arrows fa-xl text-teal-500"></i>
+                <p
+                  class="text-2xl font-bold text-gray-500 border-s-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_receive_your_requests" | translate }}
+                </p>
+              </li>
+              <li class="flex items-center gap-2">
+                <p
+                  class="text-2xl font-bold text-gray-500 border-e-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_receive_your_money" | translate }}
+                </p>
+                <i
+                  class="fa-sharp fa-solid fa-sack-dollar fa-xl text-teal-500"
+                ></i>
+              </li>
+            </ul>
+          </div>
+          <div class="pt-20 flex flex-col items-center">
+            <h3 class="w-52 text-3xl font-bold text-teal-500 pb-14 text-center">
+              {{ "translate_all_you_have_to_do_user" | translate }}
+            </h3>
+            <ul
+              class="flex flex-col items-center gap-[1.9rem] ltr:gap-[2.2rem] relative"
+            >
+              <img
+                src="../../../assets/images/chart.png"
+                alt="chart"
+                class="absolute max-w-sm -translate-y-12 scale-x-[-1]"
+              />
+              <li class="flex items-center gap-2">
+                <p
+                  class="text-2xl font-bold text-gray-500 border-e-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_request_an_worker" | translate }}
+                </p>
+                <i class="fa-solid fa-magnifying-glass fa-xl text-teal-500"></i>
+              </li>
+              <li class="flex items-center gap-2 rtl:ms-8">
+                <i
+                  class="fa-sharp fa-light fa-nfc-magnifying-glass fa-xl text-teal-500"
+                ></i>
+                <p
+                  class="text-2xl font-bold text-gray-500 border-s-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_reveal_market_price" | translate }}
+                </p>
+              </li>
+              <li class="flex items-center gap-2">
+                <p
+                  class="text-2xl font-bold text-gray-500 border-e-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_choose_whats_suitable" | translate }}
+                </p>
+                <i class="fa-solid fa-map-location-dot fa-xl text-teal-500"></i>
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fa-regular fa-circle-check fa-xl text-teal-500"></i>
+                <p
+                  class="text-2xl font-bold text-gray-500 border-s-2 border-teal-500 px-2 ltr:text-lg"
+                >
+                  {{ "translate_close_your_order" | translate }}
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- seome services section -->
+    <section class="mt-36">
+      <div class="container py-5 px-6 bg-slate-100">
+        <h1 class="text-center text-3xl font-bold text-teal-500">
+          {{ "translate_some_services_and_posts_on_incumbency" | translate }}
+        </h1>
+        <p class="text-center pt-3 text-3xl font-bold">
+          {{ "translate_most_important_professional_services" | translate }}
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
+          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
+            <img src="../../../assets/images/card-1.png" alt="card-1" />
+            <div
+              class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
+            >
+              <div class="flex gap-2">
+                <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-lg font-bold">
+                      {{ "translate_name" | translate }}
+                    </h3>
+                    <img
+                      src="../../../assets/images/flag-ksa.png"
+                      alt="flag"
+                      class="w-8 h-fit"
+                    />
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    {{ "translate_web_desining" | translate }}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1">
+                <p>(22)4.2</p>
+                <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
+              </div>
+            </div>
+            <div class="p-3">
+              <h2 class="text-lg font-bold">
+                {{ "translate_web_application_specialists" | translate }}
+              </h2>
+              <p class="text-gray-500">
+                {{
+                  "translate_web_application_specialists_descrption" | translate
+                }}
+              </p>
+              <div
+                class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
+              >
+                <p>
+                  <i class="fa-regular fa-coins fa-lg"></i>
+                  {{ "translate_price_250_SAR" | translate }}
+                </p>
+                <p>
+                  <i class="fa-regular fa-calendar fa-lg"></i>
+                  {{ "translate_30_minutes_ago" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
+            <img src="../../../assets/images/card-2.png" alt="card-2" />
+            <div
+              class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
+            >
+              <div class="flex gap-2">
+                <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-lg font-bold">
+                      {{ "translate_name" | translate }}
+                    </h3>
+                    <img
+                      src="../../../assets/images/flag-ksa.png"
+                      alt="flag"
+                      class="w-8 h-fit"
+                    />
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    {{ "translate_web_desining" | translate }}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1">
+                <p>(22)4.2</p>
+                <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
+              </div>
+            </div>
+            <div class="p-3">
+              <h2 class="text-lg font-bold">
+                {{ "translate_web_application_specialists" | translate }}
+              </h2>
+              <p class="text-gray-500">
+                {{
+                  "translate_web_application_specialists_descrption" | translate
+                }}
+              </p>
+              <div
+                class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
+              >
+                <p>
+                  <i class="fa-regular fa-coins fa-lg"></i>
+                  {{ "translate_price_250_SAR" | translate }}
+                </p>
+                <p>
+                  <i class="fa-regular fa-calendar fa-lg"></i>
+                  {{ "translate_30_minutes_ago" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
+            <img src="../../../assets/images/card-3.png" alt="card-3" />
+            <div
+              class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
+            >
+              <div class="flex gap-2">
+                <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-lg font-bold">
+                      {{ "translate_name" | translate }}
+                    </h3>
+                    <img
+                      src="../../../assets/images/flag-ksa.png"
+                      alt="flag"
+                      class="w-8 h-fit"
+                    />
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    {{ "translate_web_desining" | translate }}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1">
+                <p>(22)4.2</p>
+                <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
+              </div>
+            </div>
+            <div class="p-3">
+              <h2 class="text-lg font-bold">
+                {{ "translate_web_application_specialists" | translate }}
+              </h2>
+              <p class="text-gray-500">
+                {{
+                  "translate_web_application_specialists_descrption" | translate
+                }}
+              </p>
+              <div
+                class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
+              >
+                <p>
+                  <i class="fa-regular fa-coins fa-lg"></i>
+                  {{ "translate_price_250_SAR" | translate }}
+                </p>
+                <p>
+                  <i class="fa-regular fa-calendar fa-lg"></i>
+                  {{ "translate_30_minutes_ago" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
+            <img src="../../../assets/images/card-4.png" alt="card-4" />
+            <div
+              class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
+            >
+              <div class="flex gap-2">
+                <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-lg font-bold">
+                      {{ "translate_name" | translate }}
+                    </h3>
+                    <img
+                      src="../../../assets/images/flag-ksa.png"
+                      alt="flag"
+                      class="w-8 h-fit"
+                    />
+                  </div>
+                  <p class="text-sm text-slate-500">
+                    {{ "translate_web_desining" | translate }}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1">
+                <p>(22)4.2</p>
+                <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
+              </div>
+            </div>
+            <div class="p-3">
+              <h2 class="text-lg font-bold">
+                {{ "translate_web_application_specialists" | translate }}
+              </h2>
+              <p class="text-gray-500">
+                {{
+                  "translate_web_application_specialists_descrption" | translate
+                }}
+              </p>
+              <div
+                class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
+              >
+                <p>
+                  <i class="fa-regular fa-coins fa-lg"></i>
+                  {{ "translate_price_250_SAR" | translate }}
+                </p>
+                <p>
+                  <i class="fa-regular fa-calendar fa-lg"></i>
+                  {{ "translate_30_minutes_ago" | translate }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center pt-16">
+          <a
+            routerLink="/ads"
+            class="bg-teal-500 text-white px-20 py-3 rounded-xl hover:bg-teal-600"
+          >
+            {{ "translate_show_all" | translate }}
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- All what you have to do section -->
+    <section class="mb-24">
+      <div class="container pt-5">
+        <div class="flex justify-center gap-5 lg:px-10">
+          <img
+            src="../../../assets/images/customer-service.png"
+            alt="customer service"
+            class="hidden lg:block rounded-xl object-cover"
+          />
+          <form class="relative w-full lg:w-7/12">
+            <h3 class="text-2xl font-bold mb-2 text-teal-500">
+              {{ "translate_info" | translate }}
+            </h3>
+            <p
+              class="text-4xl font-bold mb-5 before:absolute before:block before:w-14 before:h-1 before:bg-teal-500 before:rounded-sm before:bottom-[41.3rem] md:before:bottom-[30.2rem] after:absolute after:block after:w-14 after:h-1 after:bg-teal-500 after:rounded-sm after:bottom-[42rem] md:after:bottom-[31rem] before:-translate-x-4 ltr:before:translate-x-4"
+            >
+              {{ "translate_we_prefer_to_hear_from_you" | translate }}
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-16">
+              <div class="flex flex-col">
+                <label for="name" class="font-bold text-sky-900">
+                  {{ "translate_name_label" | translate }}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  [placeholder]="'translate_name_label' | translate"
+                  class="border border-gray-300 p-2 mt-2 rounded"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label for="email" class="font-bold text-sky-900">
+                  {{ "translate_email" | translate }}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="mmmmm@gmail.com"
+                  class="border border-gray-300 p-2 mt-2 rounded"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label for="number" class="font-bold text-sky-900">
+                  {{ "translate_phone" | translate }}
+                </label>
+                <input
+                  type="tel"
+                  id="tel"
+                  placeholder="00000000"
+                  class="border border-gray-300 p-2 mt-2 rounded rtl:text-right"
+                />
+              </div>
+              <div class="flex flex-col">
+                <label for="field" class="font-bold text-sky-900">
+                  {{ "translate_field" | translate }}
+                </label>
+                <input
+                  type="text"
+                  id="field"
+                  [placeholder]="'translate_field' | translate"
+                  class="border border-gray-300 p-2 mt-2 rounded"
+                />
+              </div>
+              <div class="md:col-span-2">
+                <label for="email" class="font-bold text-sky-900">
+                  {{ "translate_email" | translate }}
+                </label>
+                <textarea
+                  id="about"
+                  name="about"
+                  rows="6"
+                  class="w-full rounded-md border border-slate-800 p-2 mt-2"
+                  [placeholder]="'translate_write_your_comment' | translate"
+                  style="resize: none"
+                ></textarea>
+              </div>
+              <div class="md:col-span-2 flex justify-end">
+                <button
+                  class="bg-teal-500 text-white px-20 py-3 rounded-lg hover:bg-teal-600"
+                >
+                  {{ "translate_submit" | translate }}
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </ng-container>
 </app-page>
