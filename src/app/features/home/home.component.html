@@ -1,13 +1,12 @@
 <app-page>
   <ng-container content>
-    <!-- temporary content -->
     <!-- Hero section -->
     <section class="relative min-h-[620px]">
       <div
         class="absolute bg-[url('assets/images/hero.jpg')] inset-0 bg-cover ltr:scale-x-[-1] -z-10 rounded-br-[8rem]"
       ></div>
-      <div class="container p-8 md:p-0">
-        <div class="text-white pt-52">
+      <div class="container p-8">
+        <div class="text-white pt-36">
           <h1 class="text-6xl font-bold">
             {{ "translate_shogol_platform" | translate }}
           </h1>
@@ -21,7 +20,7 @@
           </button>
         </div>
         <ul
-          class="mt-24 pb-32 md:pb-16 md:ps-8 text-white flex flex-col md:flex-row gap-5"
+          class="mt-24 pb-16 md:ps-8 text-white flex flex-col md:flex-row gap-5"
         >
           <li class="flex items-center gap-3">
             <i class="fa-sharp fa-solid fa-sparkles fa-2xl"></i>
@@ -76,7 +75,7 @@
             </div>
             <div class="relative w-full mt-20">
               <img
-                src="../../../assets/images/team-work.jpg"
+                src="assets/images/team-work.jpg"
                 alt="video"
                 class="w-full -z-10"
               />
@@ -159,7 +158,7 @@
             >
               <!-- <div class="w-5 h-5 bg-white border-5 border-teal-500 rounded-full mb-3"></div> -->
               <img
-                src="../../../assets/images/chart.png"
+                src="assets/images/chart.png"
                 alt="chart"
                 class="absolute max-w-sm -translate-y-12"
               />
@@ -207,7 +206,7 @@
               class="flex flex-col items-center gap-[1.9rem] ltr:gap-[2.2rem] relative"
             >
               <img
-                src="../../../assets/images/chart.png"
+                src="assets/images/chart.png"
                 alt="chart"
                 class="absolute max-w-sm -translate-y-12 scale-x-[-1]"
               />
@@ -260,211 +259,57 @@
           {{ "translate_most_important_professional_services" | translate }}
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
-          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
-            <img src="../../../assets/images/card-1.png" alt="card-1" />
+          <div
+            *ngFor="let item of cardItems"
+            class="col-span-1 bg-white rounded-2xl overflow-hidden"
+          >
+            <img [src]="item.imageSrc" alt="card" />
             <div
               class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
             >
+              <!-- Content here -->
               <div class="flex gap-2">
                 <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
                 <div>
                   <div class="flex items-center gap-2">
                     <h3 class="text-lg font-bold">
-                      {{ "translate_name" | translate }}
+                      {{ item.name | translate }}
                     </h3>
-                    <img
-                      src="../../../assets/images/flag-ksa.png"
-                      alt="flag"
-                      class="w-8 h-fit"
-                    />
+                    <img [src]="item.flagSrc" alt="flag" class="w-8 h-fit" />
                   </div>
                   <p class="text-sm text-slate-500">
-                    {{ "translate_web_desining" | translate }}
+                    {{ item.description | translate }}
                   </p>
                 </div>
               </div>
               <div class="flex items-center gap-1">
-                <p>(22)4.2</p>
+                <p>{{ item.rating }}</p>
                 <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
               </div>
             </div>
             <div class="p-3">
               <h2 class="text-lg font-bold">
-                {{ "translate_web_application_specialists" | translate }}
+                {{ item.specialization | translate }}
               </h2>
               <p class="text-gray-500">
-                {{
-                  "translate_web_application_specialists_descrption" | translate
-                }}
+                {{ item.descriptionText | translate }}
               </p>
               <div
                 class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
               >
                 <p>
                   <i class="fa-regular fa-coins fa-lg"></i>
-                  {{ "translate_price_250_SAR" | translate }}
+                  {{ item.price | translate }}
                 </p>
                 <p>
                   <i class="fa-regular fa-calendar fa-lg"></i>
-                  {{ "translate_30_minutes_ago" | translate }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
-            <img src="../../../assets/images/card-2.png" alt="card-2" />
-            <div
-              class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
-            >
-              <div class="flex gap-2">
-                <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <h3 class="text-lg font-bold">
-                      {{ "translate_name" | translate }}
-                    </h3>
-                    <img
-                      src="../../../assets/images/flag-ksa.png"
-                      alt="flag"
-                      class="w-8 h-fit"
-                    />
-                  </div>
-                  <p class="text-sm text-slate-500">
-                    {{ "translate_web_desining" | translate }}
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center gap-1">
-                <p>(22)4.2</p>
-                <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
-              </div>
-            </div>
-            <div class="p-3">
-              <h2 class="text-lg font-bold">
-                {{ "translate_web_application_specialists" | translate }}
-              </h2>
-              <p class="text-gray-500">
-                {{
-                  "translate_web_application_specialists_descrption" | translate
-                }}
-              </p>
-              <div
-                class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
-              >
-                <p>
-                  <i class="fa-regular fa-coins fa-lg"></i>
-                  {{ "translate_price_250_SAR" | translate }}
-                </p>
-                <p>
-                  <i class="fa-regular fa-calendar fa-lg"></i>
-                  {{ "translate_30_minutes_ago" | translate }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
-            <img src="../../../assets/images/card-3.png" alt="card-3" />
-            <div
-              class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
-            >
-              <div class="flex gap-2">
-                <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <h3 class="text-lg font-bold">
-                      {{ "translate_name" | translate }}
-                    </h3>
-                    <img
-                      src="../../../assets/images/flag-ksa.png"
-                      alt="flag"
-                      class="w-8 h-fit"
-                    />
-                  </div>
-                  <p class="text-sm text-slate-500">
-                    {{ "translate_web_desining" | translate }}
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center gap-1">
-                <p>(22)4.2</p>
-                <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
-              </div>
-            </div>
-            <div class="p-3">
-              <h2 class="text-lg font-bold">
-                {{ "translate_web_application_specialists" | translate }}
-              </h2>
-              <p class="text-gray-500">
-                {{
-                  "translate_web_application_specialists_descrption" | translate
-                }}
-              </p>
-              <div
-                class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
-              >
-                <p>
-                  <i class="fa-regular fa-coins fa-lg"></i>
-                  {{ "translate_price_250_SAR" | translate }}
-                </p>
-                <p>
-                  <i class="fa-regular fa-calendar fa-lg"></i>
-                  {{ "translate_30_minutes_ago" | translate }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-span-1 bg-white rounded-2xl overflow-hidden">
-            <img src="../../../assets/images/card-4.png" alt="card-4" />
-            <div
-              class="flex items-start justify-between gap-3 p-3 border-b border-gray-200"
-            >
-              <div class="flex gap-2">
-                <i class="fa-solid fa-square-user text-5xl text-gray-500"></i>
-                <div>
-                  <div class="flex items-center gap-2">
-                    <h3 class="text-lg font-bold">
-                      {{ "translate_name" | translate }}
-                    </h3>
-                    <img
-                      src="../../../assets/images/flag-ksa.png"
-                      alt="flag"
-                      class="w-8 h-fit"
-                    />
-                  </div>
-                  <p class="text-sm text-slate-500">
-                    {{ "translate_web_desining" | translate }}
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-center gap-1">
-                <p>(22)4.2</p>
-                <i class="fa-sharp fa-solid fa-star fa-lg text-yellow-400"></i>
-              </div>
-            </div>
-            <div class="p-3">
-              <h2 class="text-lg font-bold">
-                {{ "translate_web_application_specialists" | translate }}
-              </h2>
-              <p class="text-gray-500">
-                {{
-                  "translate_web_application_specialists_descrption" | translate
-                }}
-              </p>
-              <div
-                class="pt-3 flex items-center gap-4 text-teal-500 text-lg font-bold"
-              >
-                <p>
-                  <i class="fa-regular fa-coins fa-lg"></i>
-                  {{ "translate_price_250_SAR" | translate }}
-                </p>
-                <p>
-                  <i class="fa-regular fa-calendar fa-lg"></i>
-                  {{ "translate_30_minutes_ago" | translate }}
+                  {{ item.before | translate }} 30 {{ item.time | translate }}
                 </p>
               </div>
             </div>
           </div>
         </div>
+
         <div class="text-center pt-16">
           <a
             routerLink="/ads"
@@ -480,7 +325,7 @@
       <div class="container pt-5">
         <div class="flex justify-center gap-5 lg:px-10">
           <img
-            src="../../../assets/images/customer-service.png"
+            src="assets/images/customer-service.png"
             alt="customer service"
             class="hidden lg:block rounded-xl object-cover"
           />
